@@ -5,7 +5,7 @@ Created on Fri Oct 18 10:27:51 2019
 
 Example use of tkinter with python threading.
 
-@author: Benedict Wilkins AI
+@author: Benedict Wilkins AI & Alexander G Ives
 """
 
 import asyncio, discord, os, time
