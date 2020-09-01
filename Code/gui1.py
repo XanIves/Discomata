@@ -105,22 +105,27 @@ colors = ["black", "white", "red", "green", "blue"]
 # Buttons
 hudButton = tk.Button(canvas, text="HUD", command= lambda: avrae_command("!hud"))
 hudButton.grid(column=1, row = 1)
+
 initButton = tk.Button(canvas, text="Roll Initiative", command= lambda: avrae_command("!init"))
 initButton.grid(column=2, row = 1)
+
 attackLongswordButton = tk.Button(canvas, text="Attack with Longsword", command= lambda: avrae_command("!attack longsword"))
 attackLongswordButton.grid(column=3, row = 1)
+
 DiceBot_attackLongswordButton = tk.Button(canvas, text="Attack with Longsword [DB]", command= lambda: avrae_command("!1d20+8;1d8+7 #**Googway P'Mac attacks with their Longsword!**"))
 DiceBot_attackLongswordButton.grid(column=4, row = 1)
+
 DiceBot_rollInit = tk.Button(canvas, text="Roll Initiative [DB]", command= lambda: avrae_command("!1d20+3 #**Googway P'Mac rolls for initiative!**"))
 DiceBot_rollInit.grid(column=5, row = 1)
+
 rollD20 = tk.Button(canvas, text="Roll a D20", command= lambda: avrae_command("!1d20"))
 rollD20.grid(column=6, row = 1)
+
 userCommandEntry = tk.Entry(canvas)
 userCommandEntry.grid(column=7, row = 1)
+
 userCommand = tk.Button(canvas, text="Execute", command= lambda: avrae_command(userCommandEntry.get()))
 userCommand.grid(column=8, row = 1)
-
-
 
 
 #Threading
