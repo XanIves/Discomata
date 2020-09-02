@@ -5,7 +5,7 @@ Created on Fri Oct 18 10:27:51 2019
 
 Example use of tkinter with python threading.
 
-@author: Benedict Wilkins AI & Alexander G Ives
+@author: Benedict Wilkins AI & Alexander G. Ives
 """
 
 import asyncio, discord, os, time
@@ -45,7 +45,6 @@ async def on_ready():
     print(client.user.name)
     print(client.user.id)
     print('------')
-    channel = client.get_channel(id=748651797350187139) # replace with target channel id
     #await channel.send("!beyond https://ddb.ac/characters/28780677/kdQS4u")
     client.loop.create_task(my_background_task()) # best to put it in here
 
@@ -78,8 +77,7 @@ def run():
     client.run(token)
 
 def avrae_command(command):
-    # This function will take in command and enter the text of it into discord.
-    # Won't work if you want to type "empty"
+    # This function will take in command and enter it into discord as a text post.
     global message
     if command!=None and command!="empty":
         print("Button was pressed: " + command)
@@ -90,9 +88,7 @@ def avrae_command(command):
 def add_user_command(name, command):
     global userButtons
     userButtons.append(tk.Button(canvas, text=name, command = lambda: avrae_command(command)))
-    print(userButtons)
     for index, button in enumerate(userButtons):
-        print("index = " + str(index))
         button.grid(column=1, row=index, sticky="WENS", padx=10, pady=2)
 
 def quit():
@@ -101,32 +97,36 @@ def quit():
     root.destroy()
 
 
-#Threading
+######## GUI ########
+
+# Root Window. Contains the Left Window and the Right Window
 root = tk.Tk()
 root.protocol("WM_DELETE_WINDOW", quit)
 root.title("Python Tkinter Text Box")
-root.minsize(600,400)
+root.minsize(200,50)
 root.configure(background='light blue')
 
+# Left Window. Contains buttons for adding commands
+subWindow = tk.LabelFrame(root,bd=1,bg='light blue', height=200, text=" Add New Command ", relief="ridge")
+subWindow.pack(fill="y", side="left")
 
-#GUI
-# Canvas
-canvas = tk.Canvas(root, bd=0, highlightthickness=0, bg='light blue')
-canvas.grid(column=1, row = 0)
-colors = ["black", "white", "red", "green", "blue"]
+buttonNameEntry = tk.Entry(subWindow)       # Entry field for adding a new command's name
+buttonNameEntry.grid(column=1,row=0)
+buttonNameTitle = tk.Label(subWindow, text="Command Name",bg='light blue')
+buttonNameTitle.grid(column=0,row=0, sticky="WS")
 
-
-# Button inputs to allow user to add additional commands
-subWindow = tk.Frame(root, bg='light blue', height=200)
-subWindow.grid(column= 0, row = 0, sticky="WENS")
-buttonNameEntry = tk.Entry(subWindow)
-buttonNameEntry.grid(column=0,row=0)
-
-buttonCommandEntry = tk.Entry(subWindow)
-buttonCommandEntry.grid(column=1,row=0)
+buttonCommandEntry = tk.Entry(subWindow)    # Entry field for adding a new command's text to be executed
+buttonCommandEntry.grid(column=1,row=1)
+buttonCommandTitle = tk.Label(subWindow, text="Command Text",bg='light blue')
+buttonCommandTitle.grid(column=0,row=1, sticky="WS")
 
 addButtonButton = tk.Button(subWindow, text="Add", command = lambda: add_user_command(buttonNameEntry.get(), buttonCommandEntry.get()))
-addButtonButton.grid(column=2, row = 0)
+addButtonButton.grid(column=2, row=0, rowspan=2, sticky="NS")
+
+# Right Window. Contains all the buttons that the user has added
+canvas = tk.LabelFrame(root, bd=0, highlightthickness=0, bg='light blue', text=" Buttons ")
+canvas.pack(fill="y", side="left")
+colors = ["black", "white", "red", "green", "blue"]
 
 
 #Threading
