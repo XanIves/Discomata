@@ -21,6 +21,10 @@ global message #This will serve as the queue for my_background_task to check and
 message = "empty"
 client = discord.Client()
 
+# Create a list to store user-inputted button templates
+global userButtons
+userButtons = []
+
 # Discord syncing stuff
 async def my_background_task():
     global message
@@ -83,6 +87,14 @@ def avrae_command(command):
     else:
         print("Error: empty command issued.")
 
+def add_user_command(name, command):
+    global userButtons
+    userButtons.append(tk.Button(canvas, text=name, command = lambda: avrae_command(command)))
+    print(userButtons)
+    for index, button in enumerate(userButtons):
+        print("index = " + str(index))
+        button.grid(column=1, row=index, sticky="WENS", padx=10, pady=2)
+
 def quit():
     global finish
     finish = True
@@ -91,41 +103,30 @@ def quit():
 
 #Threading
 root = tk.Tk()
-root.title("Test")
 root.protocol("WM_DELETE_WINDOW", quit)
 root.title("Python Tkinter Text Box")
 root.minsize(600,400)
+root.configure(background='light blue')
+
 
 #GUI
 # Canvas
-canvas = tk.Canvas(root, bd=0, highlightthickness=0, bg='white')
-canvas.pack()
+canvas = tk.Canvas(root, bd=0, highlightthickness=0, bg='light blue')
+canvas.grid(column=1, row = 0)
 colors = ["black", "white", "red", "green", "blue"]
 
-# Buttons
-hudButton = tk.Button(canvas, text="HUD", command= lambda: avrae_command("!hud"))
-hudButton.grid(column=1, row = 1)
 
-initButton = tk.Button(canvas, text="Roll Initiative", command= lambda: avrae_command("!init"))
-initButton.grid(column=2, row = 1)
+# Button inputs to allow user to add additional commands
+subWindow = tk.Frame(root, bg='light blue', height=200)
+subWindow.grid(column= 0, row = 0, sticky="WENS")
+buttonNameEntry = tk.Entry(subWindow)
+buttonNameEntry.grid(column=0,row=0)
 
-attackLongswordButton = tk.Button(canvas, text="Attack with Longsword", command= lambda: avrae_command("!attack longsword"))
-attackLongswordButton.grid(column=3, row = 1)
+buttonCommandEntry = tk.Entry(subWindow)
+buttonCommandEntry.grid(column=1,row=0)
 
-DiceBot_attackLongswordButton = tk.Button(canvas, text="Attack with Longsword [DB]", command= lambda: avrae_command("!1d20+8;1d8+7 #**Googway P'Mac attacks with their Longsword!**"))
-DiceBot_attackLongswordButton.grid(column=4, row = 1)
-
-DiceBot_rollInit = tk.Button(canvas, text="Roll Initiative [DB]", command= lambda: avrae_command("!1d20+3 #**Googway P'Mac rolls for initiative!**"))
-DiceBot_rollInit.grid(column=5, row = 1)
-
-rollD20 = tk.Button(canvas, text="Roll a D20", command= lambda: avrae_command("!1d20"))
-rollD20.grid(column=6, row = 1)
-
-userCommandEntry = tk.Entry(canvas)
-userCommandEntry.grid(column=7, row = 1)
-
-userCommand = tk.Button(canvas, text="Execute", command= lambda: avrae_command(userCommandEntry.get()))
-userCommand.grid(column=8, row = 1)
+addButtonButton = tk.Button(subWindow, text="Add", command = lambda: add_user_command(buttonNameEntry.get(), buttonCommandEntry.get()))
+addButtonButton.grid(column=2, row = 0)
 
 
 #Threading
