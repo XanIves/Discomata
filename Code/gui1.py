@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Fri Oct 18 10:27:51 2019
+Created on Wed Aug 26 19:25:31 2020
 
-Example use of tkinter with python threading.
+Python Bot with GUI for macro creation and execution
 
-@author: Benedict Wilkins AI & Alexander G. Ives
+@author: Alexander G. Ives, based on a template by Benedict Wilkins AI
 """
 
 import asyncio, discord, os, time
@@ -17,30 +17,32 @@ from dotenv import load_dotenv
 load_dotenv()   #Load discord keys and codes from .env file
 
 # My variables
-global message #This will serve as the queue for my_background_task to check and read from. When value is "empty", loop skips posting message
+global message      # This will serve as the queue for my_background_task to check and read from. When value is "empty", loop skips posting message 
 message = "empty"
+global userButtons  # Create a list to store user-inputted button templates
+userButtons = []
+global channelID    # Current channel for the bot to post in
+channelID = 0
 client = discord.Client()
 
-# Create a list to store user-inputted button templates
-global userButtons
-userButtons = []
+
+
 
 # Discord syncing stuff
 async def my_background_task():
-    global message
+    global message, channelID
     await client.wait_until_ready() # ensures cache is loaded
-    counter = 0
-    channel = client.get_channel(id=748651797350187139) # replace with target channel id
+    channel = client.get_channel(id=channelID) # replace with target channel id
     while not client.is_closed():
-        counter += 1
         if message != "empty":
+            channel = client.get_channel(id=channelID) # replace with target channel id
             sentMessage = await channel.send(message)
             #await sentMessage.delete()  # deletes the original command posted to keep the chat clean
             message = "empty"
         await asyncio.sleep(1)  # or 300 if you wish for it to be 5 minutes
 
 @client.event
-async def on_ready():
+async def on_ready():   #Partially written by Benedict Wilkins AI
     print('Logged in as')
     print(client.user.name)
     print(client.user.id)
@@ -49,8 +51,7 @@ async def on_ready():
     client.loop.create_task(my_background_task()) # best to put it in here
 
 
-class Sleep:
-
+class Sleep:    # This class was written by Benedict Wilkins AI
     def __init__(self, wait):
         self.wait = wait
 
@@ -91,6 +92,10 @@ def add_user_command(name, command):
     for index, button in enumerate(userButtons):
         button.grid(column=1, row=index, sticky="WENS", padx=10, pady=2)
 
+def choose_channel(channelArgument):
+    global channelID
+    channelID = int(channelArgument)
+
 def quit():
     global finish
     finish = True
@@ -102,26 +107,38 @@ def quit():
 # Root Window. Contains the Left Window and the Right Window
 root = tk.Tk()
 root.protocol("WM_DELETE_WINDOW", quit)
-root.title("Python Tkinter Text Box")
+root.title("D&D Macro Bot")
 root.minsize(200,50)
 root.configure(background='light blue')
 
-# Left Window. Contains buttons for adding commands
+# Left Top Window. Contains buttons for adding commands
 subWindow = tk.LabelFrame(root,bd=1,bg='light blue', height=200, text=" Add New Command ", relief="ridge")
 subWindow.pack(fill="y", side="left")
 
 buttonNameEntry = tk.Entry(subWindow)       # Entry field for adding a new command's name
-buttonNameEntry.grid(column=1,row=0)
+buttonNameEntry.grid(column=1,row=0, sticky="WESN")
 buttonNameTitle = tk.Label(subWindow, text="Command Name",bg='light blue')
 buttonNameTitle.grid(column=0,row=0, sticky="WS")
 
 buttonCommandEntry = tk.Entry(subWindow)    # Entry field for adding a new command's text to be executed
-buttonCommandEntry.grid(column=1,row=1)
+buttonCommandEntry.grid(column=1,row=1, sticky="WESN")
 buttonCommandTitle = tk.Label(subWindow, text="Command Text",bg='light blue')
 buttonCommandTitle.grid(column=0,row=1, sticky="WS")
 
 addButtonButton = tk.Button(subWindow, text="Add", command = lambda: add_user_command(buttonNameEntry.get(), buttonCommandEntry.get()))
 addButtonButton.grid(column=2, row=0, rowspan=2, sticky="NS")
+
+# Bottom of Left Top Window. Contains an entry field and a button to choose which channel to post to.
+channelWindow = tk.LabelFrame(subWindow,bd=1,bg='light blue', height=200, text=" Channel Settings ", relief="ridge")
+channelWindow.grid(column=0,row=2, sticky="WS", columnspan=3, pady=20)
+
+channelNameEntry = tk.Entry(channelWindow)       # Entry field for adding a new command's name
+channelNameEntry.grid(column=1,row=2)
+channelNameTitle = tk.Label(channelWindow, text="Channel Id           ",bg='light blue')
+channelNameTitle.grid(column=0,row=2, sticky="WS")
+
+chooseChannelButton = tk.Button(channelWindow, text="Set Channel", command = lambda: choose_channel(channelNameEntry.get()))
+chooseChannelButton.grid(column=2, row=2, sticky="NS")
 
 # Right Window. Contains all the buttons that the user has added
 canvas = tk.LabelFrame(root, bd=0, highlightthickness=0, bg='light blue', text=" Buttons ")
@@ -129,7 +146,7 @@ canvas.pack(fill="y", side="left")
 colors = ["black", "white", "red", "green", "blue"]
 
 
-#Threading
+#Threading written by Benedict Wilkins AI
 global finish
 finish = False
 
