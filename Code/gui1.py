@@ -26,8 +26,6 @@ channelID = 0
 client = discord.Client()
 
 
-
-
 # Discord syncing stuff
 async def my_background_task():
     global message, channelID
