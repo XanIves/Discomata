@@ -5,10 +5,11 @@ Created on Wed Aug 26 19:25:31 2020
 
 Python Bot with GUI for macro creation and execution
 
-@author: Alexander G. Ives, based on a template by Benedict Wilkins AI
+@author: Alexander G. Ives, initially based on a multi-threaded tkinter example template by Benedict Wilkins AI
 """
 
 import asyncio, discord, os, time
+import readFromFile
 import tkinter as tk
 from tkinter import ttk
 from threading import Thread
@@ -22,15 +23,17 @@ message = "empty"
 global userButtons  # Create a list to store user-inputted button templates
 userButtons = []
 global channelID    # Current channel for the bot to post in
-channelID = 0
+channelID = 748651797350187139
 client = discord.Client()
+saveFileName = "addedButtons.ini"
 
 
 # Discord syncing stuff
 async def my_background_task():
-    global message, channelID
+    global message, channelID, finish
     await client.wait_until_ready() # ensures cache is loaded
     channel = client.get_channel(id=channelID) # replace with target channel id
+
     while not client.is_closed():
         if message != "empty":
             channel = client.get_channel(id=channelID) # replace with target channel id
@@ -100,6 +103,7 @@ def quit():
     root.destroy()
 
 
+
 ######## GUI ########
 
 # Root Window. Contains the Left Window and the Right Window
@@ -144,6 +148,15 @@ canvas.pack(fill="y", side="left")
 colors = ["black", "white", "red", "green", "blue"]
 
 
+# Open save file for previous commands, and restore saved buttons
+
+savedCommands = readFromFile.getCommands(saveFileName)
+print(savedCommands)
+
+for commandTuple in savedCommands:
+    add_user_command(commandTuple[0], commandTuple[1])
+
+
 #Threading written by Benedict Wilkins AI
 global finish
 finish = False
@@ -152,4 +165,4 @@ control_thread = Thread(target=run, daemon=True)
 control_thread.start()
 
 root.mainloop()
-control_thread.join()
+control_thread.join(1)
