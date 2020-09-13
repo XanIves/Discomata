@@ -18,14 +18,15 @@ from dotenv import load_dotenv
 load_dotenv()   #Load discord keys and codes from .env file
 
 # My variables
-global message      # This will serve as the queue for my_background_task to check and read from. When value is "empty", loop skips posting message 
+global message      # This will serve as the queue for my_background_task to check and read from. When value is "empty", loop skips posting message
 message = "empty"
 global userButtons  # Create a list to store user-inputted button templates
 userButtons = []
 global channelID    # Current channel for the bot to post in
-channelID = 748651797350187139
+channelID = 748651797350187139  # This is just my default testing channel in discord. Defaults to this channel if the user doesn't input anything
 client = discord.Client()
 saveFileName = "addedButtons.ini"
+global saveButton   # Green "Save" button to save current button states for later
 
 
 # Discord syncing stuff
@@ -88,14 +89,21 @@ def avrae_command(command):
         print("Error: empty command issued.")
 
 def add_user_command(name, command):
-    global userButtons
-    userButtons.append(tk.Button(canvas, text=name, command = lambda: avrae_command(command)))
-    for index, button in enumerate(userButtons):
-        button.grid(column=1, row=index, sticky="WENS", padx=10, pady=2)
+    global userButtons, saveButton
+    if name and command:
+        userButtons.append([(tk.Button(canvas, text=name, command = lambda: avrae_command(command))), command])
+        for index, button in enumerate(userButtons):
+            button[0].grid(column=1, row=index, sticky="WENS", padx=10, pady=2)
+        saveButton.grid(column=1, row=len(userButtons), sticky="WENS", padx=10, pady=20)
 
 def choose_channel(channelArgument):
     global channelID
     channelID = int(channelArgument)
+
+def save_buttons(saveFileName):
+    print("save the buttons")
+    global userButtons
+    readFromFile.save_commands(saveFileName, userButtons)
 
 def quit():
     global finish
@@ -146,11 +154,12 @@ chooseChannelButton.grid(column=2, row=2, sticky="NS")
 canvas = tk.LabelFrame(root, bd=0, highlightthickness=0, bg='light blue', text=" Buttons ")
 canvas.pack(fill="y", side="left")
 colors = ["black", "white", "red", "green", "blue"]
-
+    # Save Button
+saveButton = tk.Button(canvas, text="Save Buttons", command = lambda: save_buttons(saveFileName), bg='green')
+saveButton.grid(column=1, row=0, sticky="WENS", padx=10, pady=20)
 
 # Open save file for previous commands, and restore saved buttons
-
-savedCommands = readFromFile.getCommands(saveFileName)
+savedCommands = readFromFile.get_commands(saveFileName)
 print(savedCommands)
 
 for commandTuple in savedCommands:
