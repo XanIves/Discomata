@@ -100,7 +100,6 @@ def add_user_command(name, command):
         for index, button in enumerate(userButtons):
             button[0].grid(column=1, row=index, sticky="WENS", padx=10, pady=2)
 
-        print("\n\ndeleteUserButtons: ", deleteUserButtons)
         for index, button in enumerate(deleteUserButtons):
             button.grid(column=2, row=index, sticky="WENS", padx=10, pady=2)
 
