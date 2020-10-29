@@ -22,6 +22,8 @@ global message      # This will serve as the queue for my_background_task to che
 message = "empty"
 global userButtons  # Create a list to store user-inputted button templates
 userButtons = []
+global deleteUserButtons # Create a list of buttons to aside userButtons buttons so that each individual button can be deleted.
+deleteUserButtons = []
 global channelID    # Current channel for the bot to post in
 channelID = 748651797350187139  # This is just my default testing channel in discord. Defaults to this channel if the user doesn't input anything
 client = discord.Client()
@@ -39,7 +41,7 @@ async def my_background_task():
         if message != "empty":
             channel = client.get_channel(id=channelID) # replace with target channel id
             sentMessage = await channel.send(message)
-            #await sentMessage.delete()  # deletes the original command posted to keep the chat clean
+            await sentMessage.delete()  # deletes the original command posted to keep the chat clean
             message = "empty"
         await asyncio.sleep(1)  # or 300 if you wish for it to be 5 minutes
 
@@ -89,12 +91,31 @@ def avrae_command(command):
         print("Error: empty command issued.")
 
 def add_user_command(name, command):
-    global userButtons, saveButton
+    global userButtons, saveButton, deleteUserButtons
     if name and command:
-        userButtons.append([(tk.Button(canvas, text=name, command = lambda: avrae_command(command))), command])
+        addedButtonTuple = [(tk.Button(canvas, text=name, command = lambda: avrae_command(command))), command]
+        userButtons.append(addedButtonTuple)
+        deleteUserButtons.append(tk.Button(canvas, text="Remove",bg="red", command = lambda: removeCommand(userButtons.index(addedButtonTuple))))
+
         for index, button in enumerate(userButtons):
             button[0].grid(column=1, row=index, sticky="WENS", padx=10, pady=2)
+
+        print("\n\ndeleteUserButtons: ", deleteUserButtons)
+        for index, button in enumerate(deleteUserButtons):
+            button.grid(column=2, row=index, sticky="WENS", padx=10, pady=2)
+
         saveButton.grid(column=1, row=len(userButtons), sticky="WENS", padx=10, pady=20)
+
+def removeCommand(commandIndex):
+    global userButtons, deleteUserButtons
+    print("commandIndex: ", commandIndex)
+    userButtons[commandIndex][0].grid_forget()
+    deleteUserButtons[commandIndex].grid_forget()
+
+    del userButtons[commandIndex]
+    del deleteUserButtons[commandIndex]
+    print(userButtons)
+
 
 def choose_channel(channelArgument):
     global channelID
@@ -155,7 +176,7 @@ canvas = tk.LabelFrame(root, bd=0, highlightthickness=0, bg='light blue', text="
 canvas.pack(fill="y", side="left")
 colors = ["black", "white", "red", "green", "blue"]
     # Save Button
-saveButton = tk.Button(canvas, text="Save Buttons", command = lambda: save_buttons(saveFileName), bg='green')
+saveButton = tk.Button(canvas, text="Save Buttons", command = lambda: save_buttons(saveFileName), bg='green', fg="white")
 saveButton.grid(column=1, row=0, sticky="WENS", padx=10, pady=20)
 
 # Open save file for previous commands, and restore saved buttons
@@ -165,8 +186,7 @@ print(savedCommands)
 for commandTuple in savedCommands:
     add_user_command(commandTuple[0], commandTuple[1])
 
-
-#Threading written by Benedict Wilkins AI
+#Threading written by Benedict Wilkins AI, taken from his example blog post
 global finish
 finish = False
 
