@@ -15,17 +15,24 @@ from tkinter import ttk
 from threading import Thread
 
 from dotenv import load_dotenv
-load_dotenv()   #Load discord keys and codes from .env file
+load_dotenv()           #Load discord keys and codes from .env file
 
 # My variables
-global message      # This will serve as the queue for my_background_task to check and read from. When value is "empty", loop skips posting message
+global message          # This will serve as the queue for my_background_task to check and read from. When value is "empty", loop skips posting message
 message = "empty"
-global userButtons  # Create a list to store user-inputted button templates
+
+global userButtons      # Create a list to store user-inputted button templates
 userButtons = []
+
 global deleteUserButtons # Create a list of buttons to aside userButtons buttons so that each individual button can be deleted.
 deleteUserButtons = []
-global channelID    # Current channel for the bot to post in
+
+global channelID        # Current channel for the bot to post in
 channelID = 748651797350187139  # This is just my default testing channel in discord. Defaults to this channel if the user doesn't input anything
+
+global deleteMessage    # Controls whether a message gets deleted after very short period of time (~1s). Useful for calling Diceparser, less for Avrae
+#look for the declaration of this variable after the root declaration
+
 client = discord.Client()
 saveFileName = "addedButtons.ini"
 global saveButton   # Green "Save" button to save current button states for later
@@ -33,7 +40,7 @@ global saveButton   # Green "Save" button to save current button states for late
 
 # Discord syncing stuff
 async def my_background_task():
-    global message, channelID, finish
+    global message, channelID, finish, deleteMessage
     await client.wait_until_ready() # ensures cache is loaded
     channel = client.get_channel(id=channelID) # replace with target channel id
 
@@ -41,7 +48,9 @@ async def my_background_task():
         if message != "empty":
             channel = client.get_channel(id=channelID) # replace with target channel id
             sentMessage = await channel.send(message)
-            await sentMessage.delete()  # deletes the original command posted to keep the chat clean
+            if deleteMessage == 1:
+                await sentMessage.delete()  # deletes the original command posted to keep the chat clean
+            print(deleteMessage)
             message = "empty"
         await asyncio.sleep(1)  # or 300 if you wish for it to be 5 minutes
 
@@ -115,6 +124,9 @@ def removeCommand(commandIndex):
     del deleteUserButtons[commandIndex]
     print(userButtons)
 
+def setMessageDeleteValue(boolValue):
+    global deleteMessage
+    deleteMessage = boolValue
 
 def choose_channel(channelArgument):
     global channelID
@@ -140,6 +152,8 @@ root.protocol("WM_DELETE_WINDOW", quit)
 root.title("D&D Macro Bot")
 root.minsize(200,50)
 root.configure(background='light blue')
+deleteMessage = tk.IntVar()
+
 
 # Left Top Window. Contains buttons for adding commands
 subWindow = tk.LabelFrame(root,bd=1,bg='light blue', height=200, text=" Add New Command ", relief="ridge")
@@ -168,7 +182,10 @@ channelNameTitle = tk.Label(channelWindow, text="Channel Id           ",bg='ligh
 channelNameTitle.grid(column=0,row=2, sticky="WS")
 
 chooseChannelButton = tk.Button(channelWindow, text="Set Channel", command = lambda: choose_channel(channelNameEntry.get()))
-chooseChannelButton.grid(column=2, row=2, sticky="NS")
+chooseChannelButton.grid(column=2, row=2, sticky="NW", padx=10, pady=5)
+
+removeMessageCheckBox = tk.Checkbutton(channelWindow, text="Delete Message\nAfter Post", variable=deleteMessage)
+removeMessageCheckBox.grid(column=2, row=3, sticky="NS", padx=10, pady=5)
 
 # Right Window. Contains all the buttons that the user has added
 canvas = tk.LabelFrame(root, bd=0, highlightthickness=0, bg='light blue', text=" Buttons ")
