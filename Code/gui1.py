@@ -37,6 +37,13 @@ client = discord.Client()
 saveFileName = "addedButtons.ini"
 global saveButton   # Green "Save" button to save current button states for later
 
+# Root Window. Contains the Left Window and the Right Window
+root = tk.Tk()
+root.protocol("WM_DELETE_WINDOW", quit)
+root.title("D&D Macro Bot")
+root.minsize(200,50)
+root.configure(background='light blue')
+deleteMessage = tk.IntVar()
 
 # Discord syncing stuff
 async def my_background_task():
@@ -45,14 +52,13 @@ async def my_background_task():
     channel = client.get_channel(id=channelID) # replace with target channel id
 
     while not client.is_closed():
-        if message != "empty":
+        if message != "NULL":
             channel = client.get_channel(id=channelID) # replace with target channel id
             sentMessage = await channel.send(message)
-            if deleteMessage == 1:
+            if deleteMessage.get() == 1:
                 await sentMessage.delete()  # deletes the original command posted to keep the chat clean
-            print(deleteMessage)
-            message = "empty"
-        await asyncio.sleep(1)  # or 300 if you wish for it to be 5 minutes
+            message = "NULL"
+        await asyncio.sleep(0.2)  # Measured in seconds. Set to 300 for 5 minutes
 
 @client.event
 async def on_ready():   #Partially written by Benedict Wilkins AI
@@ -137,6 +143,10 @@ def save_buttons(saveFileName):
     global userButtons
     readFromFile.save_commands(saveFileName, userButtons)
 
+def checkboxFunction():
+    global deleteMessage
+    print("deleteMessage", deleteMessage.get())
+
 def quit():
     global finish
     finish = True
@@ -145,14 +155,6 @@ def quit():
 
 
 ######## GUI ########
-
-# Root Window. Contains the Left Window and the Right Window
-root = tk.Tk()
-root.protocol("WM_DELETE_WINDOW", quit)
-root.title("D&D Macro Bot")
-root.minsize(200,50)
-root.configure(background='light blue')
-deleteMessage = tk.IntVar()
 
 
 # Left Top Window. Contains buttons for adding commands
@@ -184,7 +186,7 @@ channelNameTitle.grid(column=0,row=2, sticky="WS")
 chooseChannelButton = tk.Button(channelWindow, text="Set Channel", command = lambda: choose_channel(channelNameEntry.get()))
 chooseChannelButton.grid(column=2, row=2, sticky="NW", padx=10, pady=5)
 
-removeMessageCheckBox = tk.Checkbutton(channelWindow, text="Delete Message\nAfter Post", variable=deleteMessage)
+removeMessageCheckBox = tk.Checkbutton(channelWindow, text="Delete Message\nAfter Post", variable=deleteMessage, command = lambda: checkboxFunction())
 removeMessageCheckBox.grid(column=2, row=3, sticky="NS", padx=10, pady=5)
 
 # Right Window. Contains all the buttons that the user has added
