@@ -6,7 +6,7 @@ To run this bot locally, you need to create a .env file that stores your discord
 
 1. Open the /Code/ folder in your command line
 
-2. run "pip install -r requirements.txt"
+2. run "pip -3.8 install -r requirements.txt"
 
 3. Create a file called ".env" in the /Code/ folder. This can be done by renaming a textfile to .env. or by typing "touch .env" into your command line.
 
