@@ -1,0 +1,53 @@
+('C:\\Users\\Xan Ives\\Desktop\\Coding Projects\\[Python] D&D Discord '
+ 'Controller\\build\\gui1\\PKG-00.pkg',
+ {'BINARY': 1,
+  'DATA': 1,
+  'EXECUTABLE': 1,
+  'EXTENSION': 1,
+  'PYMODULE': 1,
+  'PYSOURCE': 1,
+  'PYZ': 0},
+ [('PYZ-00.pyz',
+   'C:\\Users\\Xan Ives\\Desktop\\Coding Projects\\[Python] D&D Discord '
+   'Controller\\build\\gui1\\PYZ-00.pyz',
+   'PYZ'),
+  ('struct',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\struct.pyo',
+   'PYMODULE'),
+  ('pyimod01_os_path',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\PyInstaller\\loader\\pyimod01_os_path.pyc',
+   'PYMODULE'),
+  ('pyimod02_archive',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\PyInstaller\\loader\\pyimod02_archive.pyc',
+   'PYMODULE'),
+  ('pyimod03_importers',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\PyInstaller\\loader\\pyimod03_importers.pyc',
+   'PYMODULE'),
+  ('pyiboot01_bootstrap',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\PyInstaller\\loader\\pyiboot01_bootstrap.py',
+   'PYSOURCE'),
+  ('pyi_rth__tkinter',
+   'C:\\Users\\Xan '
+   'Ives\\AppData\\Local\\Programs\\Python\\Python39\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks\\pyi_rth__tkinter.py',
+   'PYSOURCE'),
+  ('pyi_rth_multiprocessing',
+   'C:\\Users\\Xan '
+   'Ives\\AppData\\Local\\Programs\\Python\\Python39\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks\\pyi_rth_multiprocessing.py',
+   'PYSOURCE'),
+  ('gui1',
+   'C:\\Users\\Xan Ives\\Desktop\\Coding Projects\\[Python] D&D Discord '
+   'Controller\\Code\\gui1.py',
+   'PYSOURCE'),
+  ('gui1.exe.manifest',
+   'C:\\Users\\Xan Ives\\Desktop\\Coding Projects\\[Python] D&D Discord '
+   'Controller\\build\\gui1\\gui1.exe.manifest',
+   'BINARY')],
+ True,
+ False,
+ False,
+ [])

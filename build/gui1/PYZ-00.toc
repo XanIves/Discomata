@@ -1,0 +1,1738 @@
+('C:\\Users\\Xan Ives\\Desktop\\Coding Projects\\[Python] D&D Discord '
+ 'Controller\\build\\gui1\\PYZ-00.pyz',
+ [('multiprocessing.popen_spawn_posix',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\multiprocessing\\popen_spawn_posix.py',
+   'PYMODULE'),
+  ('multiprocessing.resource_tracker',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\multiprocessing\\resource_tracker.py',
+   'PYMODULE'),
+  ('signal',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\signal.py',
+   'PYMODULE'),
+  ('multiprocessing.util',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\multiprocessing\\util.py',
+   'PYMODULE'),
+  ('multiprocessing.forkserver',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\multiprocessing\\forkserver.py',
+   'PYMODULE'),
+  ('multiprocessing.connection',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\multiprocessing\\connection.py',
+   'PYMODULE'),
+  ('multiprocessing.resource_sharer',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\multiprocessing\\resource_sharer.py',
+   'PYMODULE'),
+  ('xmlrpc.client',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\xmlrpc\\client.py',
+   'PYMODULE'),
+  ('xmlrpc',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\xmlrpc\\__init__.py',
+   'PYMODULE'),
+  ('gzip',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\gzip.py',
+   'PYMODULE'),
+  ('argparse',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\argparse.py',
+   'PYMODULE'),
+  ('textwrap',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\textwrap.py',
+   'PYMODULE'),
+  ('copy',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\copy.py',
+   'PYMODULE'),
+  ('gettext',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\gettext.py',
+   'PYMODULE'),
+  ('_compression',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\_compression.py',
+   'PYMODULE'),
+  ('xml.parsers.expat',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\xml\\parsers\\expat.py',
+   'PYMODULE'),
+  ('xml.parsers',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\xml\\parsers\\__init__.py',
+   'PYMODULE'),
+  ('xml',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\xml\\__init__.py',
+   'PYMODULE'),
+  ('xml.sax.expatreader',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\xml\\sax\\expatreader.py',
+   'PYMODULE'),
+  ('xml.sax.saxutils',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\xml\\sax\\saxutils.py',
+   'PYMODULE'),
+  ('urllib.request',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\urllib\\request.py',
+   'PYMODULE'),
+  ('fnmatch',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\fnmatch.py',
+   'PYMODULE'),
+  ('getpass',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\getpass.py',
+   'PYMODULE'),
+  ('nturl2path',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\nturl2path.py',
+   'PYMODULE'),
+  ('ftplib',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\ftplib.py',
+   'PYMODULE'),
+  ('netrc',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\netrc.py',
+   'PYMODULE'),
+  ('stat',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\stat.py',
+   'PYMODULE'),
+  ('shlex',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\shlex.py',
+   'PYMODULE'),
+  ('mimetypes',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\mimetypes.py',
+   'PYMODULE'),
+  ('getopt',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\getopt.py',
+   'PYMODULE'),
+  ('email.utils',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\email\\utils.py',
+   'PYMODULE'),
+  ('email.charset',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\email\\charset.py',
+   'PYMODULE'),
+  ('email.encoders',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\email\\encoders.py',
+   'PYMODULE'),
+  ('quopri',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\quopri.py',
+   'PYMODULE'),
+  ('email.errors',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\email\\errors.py',
+   'PYMODULE'),
+  ('email.quoprimime',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\email\\quoprimime.py',
+   'PYMODULE'),
+  ('email.base64mime',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\email\\base64mime.py',
+   'PYMODULE'),
+  ('email._parseaddr',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\email\\_parseaddr.py',
+   'PYMODULE'),
+  ('calendar',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\calendar.py',
+   'PYMODULE'),
+  ('random',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\random.py',
+   'PYMODULE'),
+  ('statistics',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\statistics.py',
+   'PYMODULE'),
+  ('fractions',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\fractions.py',
+   'PYMODULE'),
+  ('numbers',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\numbers.py',
+   'PYMODULE'),
+  ('http.cookiejar',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\http\\cookiejar.py',
+   'PYMODULE'),
+  ('http',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\http\\__init__.py',
+   'PYMODULE'),
+  ('urllib',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\urllib\\__init__.py',
+   'PYMODULE'),
+  ('ssl',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\ssl.py',
+   'PYMODULE'),
+  ('urllib.response',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\urllib\\response.py',
+   'PYMODULE'),
+  ('urllib.error',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\urllib\\error.py',
+   'PYMODULE'),
+  ('contextlib',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\contextlib.py',
+   'PYMODULE'),
+  ('string',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\string.py',
+   'PYMODULE'),
+  ('posixpath',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\posixpath.py',
+   'PYMODULE'),
+  ('genericpath',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\genericpath.py',
+   'PYMODULE'),
+  ('hashlib',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\hashlib.py',
+   'PYMODULE'),
+  ('email',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\email\\__init__.py',
+   'PYMODULE'),
+  ('email.parser',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\email\\parser.py',
+   'PYMODULE'),
+  ('email._policybase',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\email\\_policybase.py',
+   'PYMODULE'),
+  ('email.feedparser',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\email\\feedparser.py',
+   'PYMODULE'),
+  ('email.message',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\email\\message.py',
+   'PYMODULE'),
+  ('email.policy',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\email\\policy.py',
+   'PYMODULE'),
+  ('email.contentmanager',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\email\\contentmanager.py',
+   'PYMODULE'),
+  ('email.headerregistry',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\email\\headerregistry.py',
+   'PYMODULE'),
+  ('email.iterators',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\email\\iterators.py',
+   'PYMODULE'),
+  ('email.generator',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\email\\generator.py',
+   'PYMODULE'),
+  ('email._encoded_words',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\email\\_encoded_words.py',
+   'PYMODULE'),
+  ('uu',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\uu.py',
+   'PYMODULE'),
+  ('optparse',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\optparse.py',
+   'PYMODULE'),
+  ('email._header_value_parser',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\email\\_header_value_parser.py',
+   'PYMODULE'),
+  ('email.header',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\email\\header.py',
+   'PYMODULE'),
+  ('bisect',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\bisect.py',
+   'PYMODULE'),
+  ('xml.sax',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\xml\\sax\\__init__.py',
+   'PYMODULE'),
+  ('xml.sax.handler',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\xml\\sax\\handler.py',
+   'PYMODULE'),
+  ('xml.sax._exceptions',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\xml\\sax\\_exceptions.py',
+   'PYMODULE'),
+  ('xml.sax.xmlreader',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\xml\\sax\\xmlreader.py',
+   'PYMODULE'),
+  ('urllib.parse',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\urllib\\parse.py',
+   'PYMODULE'),
+  ('http.client',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\http\\client.py',
+   'PYMODULE'),
+  ('decimal',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\decimal.py',
+   'PYMODULE'),
+  ('_pydecimal',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\_pydecimal.py',
+   'PYMODULE'),
+  ('contextvars',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\contextvars.py',
+   'PYMODULE'),
+  ('datetime',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\datetime.py',
+   'PYMODULE'),
+  ('_strptime',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\_strptime.py',
+   'PYMODULE'),
+  ('base64',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\base64.py',
+   'PYMODULE'),
+  ('hmac',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\hmac.py',
+   'PYMODULE'),
+  ('struct',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\struct.py',
+   'PYMODULE'),
+  ('socket',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\socket.py',
+   'PYMODULE'),
+  ('selectors',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\selectors.py',
+   'PYMODULE'),
+  ('tempfile',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\tempfile.py',
+   'PYMODULE'),
+  ('shutil',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\shutil.py',
+   'PYMODULE'),
+  ('zipfile',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\zipfile.py',
+   'PYMODULE'),
+  ('py_compile',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\py_compile.py',
+   'PYMODULE'),
+  ('ntpath',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\ntpath.py',
+   'PYMODULE'),
+  ('importlib.machinery',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\importlib\\machinery.py',
+   'PYMODULE'),
+  ('importlib',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\importlib\\__init__.py',
+   'PYMODULE'),
+  ('importlib.abc',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\importlib\\abc.py',
+   'PYMODULE'),
+  ('typing',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\typing.py',
+   'PYMODULE'),
+  ('importlib._bootstrap',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\importlib\\_bootstrap.py',
+   'PYMODULE'),
+  ('importlib._bootstrap_external',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\importlib\\_bootstrap_external.py',
+   'PYMODULE'),
+  ('importlib.metadata',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\importlib\\metadata.py',
+   'PYMODULE'),
+  ('configparser',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\configparser.py',
+   'PYMODULE'),
+  ('pathlib',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\pathlib.py',
+   'PYMODULE'),
+  ('csv',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\csv.py',
+   'PYMODULE'),
+  ('tokenize',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\tokenize.py',
+   'PYMODULE'),
+  ('token',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\token.py',
+   'PYMODULE'),
+  ('importlib.util',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\importlib\\util.py',
+   'PYMODULE'),
+  ('tarfile',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\tarfile.py',
+   'PYMODULE'),
+  ('lzma',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\lzma.py',
+   'PYMODULE'),
+  ('bz2',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\bz2.py',
+   'PYMODULE'),
+  ('logging',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\logging\\__init__.py',
+   'PYMODULE'),
+  ('pickle',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\pickle.py',
+   'PYMODULE'),
+  ('pprint',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\pprint.py',
+   'PYMODULE'),
+  ('doctest',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\doctest.py',
+   'PYMODULE'),
+  ('unittest',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\unittest\\__init__.py',
+   'PYMODULE'),
+  ('unittest.async_case',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\unittest\\async_case.py',
+   'PYMODULE'),
+  ('unittest.signals',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\unittest\\signals.py',
+   'PYMODULE'),
+  ('unittest.main',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\unittest\\main.py',
+   'PYMODULE'),
+  ('unittest.runner',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\unittest\\runner.py',
+   'PYMODULE'),
+  ('unittest.loader',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\unittest\\loader.py',
+   'PYMODULE'),
+  ('unittest.suite',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\unittest\\suite.py',
+   'PYMODULE'),
+  ('unittest.case',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\unittest\\case.py',
+   'PYMODULE'),
+  ('unittest._log',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\unittest\\_log.py',
+   'PYMODULE'),
+  ('unittest.result',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\unittest\\result.py',
+   'PYMODULE'),
+  ('unittest.util',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\unittest\\util.py',
+   'PYMODULE'),
+  ('pdb',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\pdb.py',
+   'PYMODULE'),
+  ('pydoc',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\pydoc.py',
+   'PYMODULE'),
+  ('webbrowser',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\webbrowser.py',
+   'PYMODULE'),
+  ('http.server',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\http\\server.py',
+   'PYMODULE'),
+  ('socketserver',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\socketserver.py',
+   'PYMODULE'),
+  ('html',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\html\\__init__.py',
+   'PYMODULE'),
+  ('html.entities',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\html\\entities.py',
+   'PYMODULE'),
+  ('pydoc_data.topics',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\pydoc_data\\topics.py',
+   'PYMODULE'),
+  ('pydoc_data',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\pydoc_data\\__init__.py',
+   'PYMODULE'),
+  ('tty',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\tty.py',
+   'PYMODULE'),
+  ('sysconfig',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\sysconfig.py',
+   'PYMODULE'),
+  ('_aix_support',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\_aix_support.py',
+   'PYMODULE'),
+  ('_bootsubprocess',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\_bootsubprocess.py',
+   'PYMODULE'),
+  ('_osx_support',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\_osx_support.py',
+   'PYMODULE'),
+  ('distutils.log',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\distutils\\log.py',
+   'PYMODULE'),
+  ('distutils',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\distutils\\__init__.py',
+   'PYMODULE'),
+  ('distutils.ccompiler',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\distutils\\ccompiler.py',
+   'PYMODULE'),
+  ('distutils.fancy_getopt',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\distutils\\fancy_getopt.py',
+   'PYMODULE'),
+  ('distutils.debug',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\distutils\\debug.py',
+   'PYMODULE'),
+  ('distutils.util',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\distutils\\util.py',
+   'PYMODULE'),
+  ('distutils.filelist',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\distutils\\filelist.py',
+   'PYMODULE'),
+  ('distutils.dep_util',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\distutils\\dep_util.py',
+   'PYMODULE'),
+  ('distutils.dir_util',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\distutils\\dir_util.py',
+   'PYMODULE'),
+  ('distutils.file_util',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\distutils\\file_util.py',
+   'PYMODULE'),
+  ('distutils.spawn',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\distutils\\spawn.py',
+   'PYMODULE'),
+  ('distutils.errors',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\distutils\\errors.py',
+   'PYMODULE'),
+  ('distutils.sysconfig',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\distutils\\sysconfig.py',
+   'PYMODULE'),
+  ('distutils.text_file',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\distutils\\text_file.py',
+   'PYMODULE'),
+  ('platform',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\platform.py',
+   'PYMODULE'),
+  ('plistlib',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\plistlib.py',
+   'PYMODULE'),
+  ('pkgutil',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\pkgutil.py',
+   'PYMODULE'),
+  ('zipimport',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\zipimport.py',
+   'PYMODULE'),
+  ('runpy',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\runpy.py',
+   'PYMODULE'),
+  ('glob',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\glob.py',
+   'PYMODULE'),
+  ('code',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\code.py',
+   'PYMODULE'),
+  ('codeop',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\codeop.py',
+   'PYMODULE'),
+  ('dis',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\dis.py',
+   'PYMODULE'),
+  ('opcode',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\opcode.py',
+   'PYMODULE'),
+  ('bdb',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\bdb.py',
+   'PYMODULE'),
+  ('cmd',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\cmd.py',
+   'PYMODULE'),
+  ('inspect',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\inspect.py',
+   'PYMODULE'),
+  ('ast',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\ast.py',
+   'PYMODULE'),
+  ('difflib',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\difflib.py',
+   'PYMODULE'),
+  ('__future__',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\__future__.py',
+   'PYMODULE'),
+  ('_compat_pickle',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\_compat_pickle.py',
+   'PYMODULE'),
+  ('multiprocessing.process',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\multiprocessing\\process.py',
+   'PYMODULE'),
+  ('multiprocessing.context',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\multiprocessing\\context.py',
+   'PYMODULE'),
+  ('multiprocessing.popen_forkserver',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\multiprocessing\\popen_forkserver.py',
+   'PYMODULE'),
+  ('multiprocessing.sharedctypes',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\multiprocessing\\sharedctypes.py',
+   'PYMODULE'),
+  ('multiprocessing.heap',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\multiprocessing\\heap.py',
+   'PYMODULE'),
+  ('ctypes',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\ctypes\\__init__.py',
+   'PYMODULE'),
+  ('ctypes._endian',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\ctypes\\_endian.py',
+   'PYMODULE'),
+  ('multiprocessing.pool',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\multiprocessing\\pool.py',
+   'PYMODULE'),
+  ('multiprocessing.dummy',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\multiprocessing\\dummy\\__init__.py',
+   'PYMODULE'),
+  ('multiprocessing.dummy.connection',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\multiprocessing\\dummy\\connection.py',
+   'PYMODULE'),
+  ('queue',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\queue.py',
+   'PYMODULE'),
+  ('multiprocessing.queues',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\multiprocessing\\queues.py',
+   'PYMODULE'),
+  ('multiprocessing.synchronize',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\multiprocessing\\synchronize.py',
+   'PYMODULE'),
+  ('multiprocessing.managers',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\multiprocessing\\managers.py',
+   'PYMODULE'),
+  ('multiprocessing.shared_memory',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\multiprocessing\\shared_memory.py',
+   'PYMODULE'),
+  ('secrets',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\secrets.py',
+   'PYMODULE'),
+  ('multiprocessing.reduction',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\multiprocessing\\reduction.py',
+   'PYMODULE'),
+  ('multiprocessing.popen_fork',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\multiprocessing\\popen_fork.py',
+   'PYMODULE'),
+  ('multiprocessing.popen_spawn_win32',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\multiprocessing\\popen_spawn_win32.py',
+   'PYMODULE'),
+  ('subprocess',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\subprocess.py',
+   'PYMODULE'),
+  ('multiprocessing.spawn',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\multiprocessing\\spawn.py',
+   'PYMODULE'),
+  ('multiprocessing',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\multiprocessing\\__init__.py',
+   'PYMODULE'),
+  ('stringprep',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\stringprep.py',
+   'PYMODULE'),
+  ('tracemalloc',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\tracemalloc.py',
+   'PYMODULE'),
+  ('_py_abc',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\_py_abc.py',
+   'PYMODULE'),
+  ('dotenv',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\dotenv\\__init__.py',
+   'PYMODULE'),
+  ('dotenv.ipython',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\dotenv\\ipython.py',
+   'PYMODULE'),
+  ('dotenv.main',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\dotenv\\main.py',
+   'PYMODULE'),
+  ('dotenv.variables',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\dotenv\\variables.py',
+   'PYMODULE'),
+  ('dotenv.parser',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\dotenv\\parser.py',
+   'PYMODULE'),
+  ('dotenv.compat',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\dotenv\\compat.py',
+   'PYMODULE'),
+  ('threading',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\threading.py',
+   'PYMODULE'),
+  ('_threading_local',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\_threading_local.py',
+   'PYMODULE'),
+  ('tkinter.ttk',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\tkinter\\ttk.py',
+   'PYMODULE'),
+  ('tkinter',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\tkinter\\__init__.py',
+   'PYMODULE'),
+  ('tkinter.constants',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\tkinter\\constants.py',
+   'PYMODULE'),
+  ('os',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\os.py',
+   'PYMODULE'),
+  ('discord',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\discord\\__init__.py',
+   'PYMODULE'),
+  ('discord.sticker',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\discord\\sticker.py',
+   'PYMODULE'),
+  ('discord.mixins',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\discord\\mixins.py',
+   'PYMODULE'),
+  ('discord.team',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\discord\\team.py',
+   'PYMODULE'),
+  ('discord.raw_models',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\discord\\raw_models.py',
+   'PYMODULE'),
+  ('discord.audit_logs',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\discord\\audit_logs.py',
+   'PYMODULE'),
+  ('discord.voice_client',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\discord\\voice_client.py',
+   'PYMODULE'),
+  ('nacl.secret',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\nacl\\secret.py',
+   'PYMODULE'),
+  ('nacl.utils',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\nacl\\utils.py',
+   'PYMODULE'),
+  ('six',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\six.py',
+   'PYMODULE'),
+  ('nacl.exceptions',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\nacl\\exceptions.py',
+   'PYMODULE'),
+  ('nacl.encoding',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\nacl\\encoding.py',
+   'PYMODULE'),
+  ('nacl',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\nacl\\__init__.py',
+   'PYMODULE'),
+  ('nacl.bindings',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\nacl\\bindings\\__init__.py',
+   'PYMODULE'),
+  ('nacl.bindings.utils',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\nacl\\bindings\\utils.py',
+   'PYMODULE'),
+  ('nacl.bindings.sodium_core',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\nacl\\bindings\\sodium_core.py',
+   'PYMODULE'),
+  ('nacl.bindings.randombytes',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\nacl\\bindings\\randombytes.py',
+   'PYMODULE'),
+  ('nacl.bindings.crypto_sign',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\nacl\\bindings\\crypto_sign.py',
+   'PYMODULE'),
+  ('nacl.bindings.crypto_shorthash',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\nacl\\bindings\\crypto_shorthash.py',
+   'PYMODULE'),
+  ('nacl.bindings.crypto_secretstream',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\nacl\\bindings\\crypto_secretstream.py',
+   'PYMODULE'),
+  ('nacl.bindings.crypto_secretbox',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\nacl\\bindings\\crypto_secretbox.py',
+   'PYMODULE'),
+  ('nacl.bindings.crypto_scalarmult',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\nacl\\bindings\\crypto_scalarmult.py',
+   'PYMODULE'),
+  ('nacl.bindings.crypto_pwhash',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\nacl\\bindings\\crypto_pwhash.py',
+   'PYMODULE'),
+  ('nacl.bindings.crypto_kx',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\nacl\\bindings\\crypto_kx.py',
+   'PYMODULE'),
+  ('nacl.bindings.crypto_hash',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\nacl\\bindings\\crypto_hash.py',
+   'PYMODULE'),
+  ('nacl.bindings.crypto_generichash',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\nacl\\bindings\\crypto_generichash.py',
+   'PYMODULE'),
+  ('nacl.bindings.crypto_core',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\nacl\\bindings\\crypto_core.py',
+   'PYMODULE'),
+  ('nacl.bindings.crypto_box',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\nacl\\bindings\\crypto_box.py',
+   'PYMODULE'),
+  ('nacl.bindings.crypto_aead',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\nacl\\bindings\\crypto_aead.py',
+   'PYMODULE'),
+  ('discord.gateway',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\discord\\gateway.py',
+   'PYMODULE'),
+  ('aiohttp',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\aiohttp\\__init__.py',
+   'PYMODULE'),
+  ('aiohttp.worker',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\aiohttp\\worker.py',
+   'PYMODULE'),
+  ('aiohttp.web_log',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\aiohttp\\web_log.py',
+   'PYMODULE'),
+  ('aiohttp.web_response',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\aiohttp\\web_response.py',
+   'PYMODULE'),
+  ('aiohttp.typedefs',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\aiohttp\\typedefs.py',
+   'PYMODULE'),
+  ('yarl',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\yarl\\__init__.py',
+   'PYMODULE'),
+  ('yarl._url',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\yarl\\_url.py',
+   'PYMODULE'),
+  ('yarl._quoting',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\yarl\\_quoting.py',
+   'PYMODULE'),
+  ('yarl._quoting_py',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\yarl\\_quoting_py.py',
+   'PYMODULE'),
+  ('idna',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\idna\\__init__.py',
+   'PYMODULE'),
+  ('idna.core',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\idna\\core.py',
+   'PYMODULE'),
+  ('idna.uts46data',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\idna\\uts46data.py',
+   'PYMODULE'),
+  ('idna.intranges',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\idna\\intranges.py',
+   'PYMODULE'),
+  ('idna.idnadata',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\idna\\idnadata.py',
+   'PYMODULE'),
+  ('idna.package_data',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\idna\\package_data.py',
+   'PYMODULE'),
+  ('ipaddress',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\ipaddress.py',
+   'PYMODULE'),
+  ('multidict',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\multidict\\__init__.py',
+   'PYMODULE'),
+  ('multidict._multidict_py',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\multidict\\_multidict_py.py',
+   'PYMODULE'),
+  ('multidict._compat',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\multidict\\_compat.py',
+   'PYMODULE'),
+  ('multidict._abc',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\multidict\\_abc.py',
+   'PYMODULE'),
+  ('http.cookies',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\http\\cookies.py',
+   'PYMODULE'),
+  ('aiohttp.web_request',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\aiohttp\\web_request.py',
+   'PYMODULE'),
+  ('aiohttp.web_urldispatcher',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\aiohttp\\web_urldispatcher.py',
+   'PYMODULE'),
+  ('aiohttp.web_routedef',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\aiohttp\\web_routedef.py',
+   'PYMODULE'),
+  ('aiohttp.web_fileresponse',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\aiohttp\\web_fileresponse.py',
+   'PYMODULE'),
+  ('typing_extensions',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\typing_extensions.py',
+   'PYMODULE'),
+  ('aiohttp.web_protocol',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\aiohttp\\web_protocol.py',
+   'PYMODULE'),
+  ('aiohttp.web_server',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\aiohttp\\web_server.py',
+   'PYMODULE'),
+  ('aiohttp.tcp_helpers',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\aiohttp\\tcp_helpers.py',
+   'PYMODULE'),
+  ('aiohttp.log',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\aiohttp\\log.py',
+   'PYMODULE'),
+  ('aiohttp.base_protocol',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\aiohttp\\base_protocol.py',
+   'PYMODULE'),
+  ('asyncio.streams',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\asyncio\\streams.py',
+   'PYMODULE'),
+  ('asyncio.tasks',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\asyncio\\tasks.py',
+   'PYMODULE'),
+  ('asyncio.queues',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\asyncio\\queues.py',
+   'PYMODULE'),
+  ('asyncio.locks',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\asyncio\\locks.py',
+   'PYMODULE'),
+  ('asyncio.futures',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\asyncio\\futures.py',
+   'PYMODULE'),
+  ('asyncio.base_futures',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\asyncio\\base_futures.py',
+   'PYMODULE'),
+  ('asyncio.base_tasks',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\asyncio\\base_tasks.py',
+   'PYMODULE'),
+  ('asyncio.log',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\asyncio\\log.py',
+   'PYMODULE'),
+  ('asyncio.protocols',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\asyncio\\protocols.py',
+   'PYMODULE'),
+  ('asyncio.format_helpers',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\asyncio\\format_helpers.py',
+   'PYMODULE'),
+  ('asyncio.constants',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\asyncio\\constants.py',
+   'PYMODULE'),
+  ('asyncio.exceptions',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\asyncio\\exceptions.py',
+   'PYMODULE'),
+  ('asyncio.events',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\asyncio\\events.py',
+   'PYMODULE'),
+  ('asyncio.coroutines',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\asyncio\\coroutines.py',
+   'PYMODULE'),
+  ('aiohttp.web_exceptions',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\aiohttp\\web_exceptions.py',
+   'PYMODULE'),
+  ('aiohttp.http_writer',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\aiohttp\\http_writer.py',
+   'PYMODULE'),
+  ('aiohttp.http_parser',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\aiohttp\\http_parser.py',
+   'PYMODULE'),
+  ('aiohttp.http_exceptions',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\aiohttp\\http_exceptions.py',
+   'PYMODULE'),
+  ('attr',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\attr\\__init__.py',
+   'PYMODULE'),
+  ('attr._next_gen',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\attr\\_next_gen.py',
+   'PYMODULE'),
+  ('attr._version_info',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\attr\\_version_info.py',
+   'PYMODULE'),
+  ('attr._make',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\attr\\_make.py',
+   'PYMODULE'),
+  ('attr._compat',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\attr\\_compat.py',
+   'PYMODULE'),
+  ('uuid',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\uuid.py',
+   'PYMODULE'),
+  ('attr._funcs',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\attr\\_funcs.py',
+   'PYMODULE'),
+  ('attr._cmp',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\attr\\_cmp.py',
+   'PYMODULE'),
+  ('attr.validators',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\attr\\validators.py',
+   'PYMODULE'),
+  ('attr.filters',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\attr\\filters.py',
+   'PYMODULE'),
+  ('attr.exceptions',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\attr\\exceptions.py',
+   'PYMODULE'),
+  ('attr.converters',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\attr\\converters.py',
+   'PYMODULE'),
+  ('attr.setters',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\attr\\setters.py',
+   'PYMODULE'),
+  ('attr._config',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\attr\\_config.py',
+   'PYMODULE'),
+  ('aiohttp.abc',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\aiohttp\\abc.py',
+   'PYMODULE'),
+  ('aiohttp.web_app',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\aiohttp\\web_app.py',
+   'PYMODULE'),
+  ('aiohttp.web_middlewares',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\aiohttp\\web_middlewares.py',
+   'PYMODULE'),
+  ('aiohttp.frozenlist',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\aiohttp\\frozenlist.py',
+   'PYMODULE'),
+  ('aiohttp.web',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\aiohttp\\web.py',
+   'PYMODULE'),
+  ('aiohttp.web_ws',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\aiohttp\\web_ws.py',
+   'PYMODULE'),
+  ('async_timeout',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\async_timeout\\__init__.py',
+   'PYMODULE'),
+  ('aiohttp.web_runner',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\aiohttp\\web_runner.py',
+   'PYMODULE'),
+  ('aiohttp.tracing',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\aiohttp\\tracing.py',
+   'PYMODULE'),
+  ('aiohttp.client_reqrep',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\aiohttp\\client_reqrep.py',
+   'PYMODULE'),
+  ('aiohttp.connector',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\aiohttp\\connector.py',
+   'PYMODULE'),
+  ('aiohttp.locks',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\aiohttp\\locks.py',
+   'PYMODULE'),
+  ('aiohttp.client_proto',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\aiohttp\\client_proto.py',
+   'PYMODULE'),
+  ('chardet',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\chardet\\__init__.py',
+   'PYMODULE'),
+  ('chardet.version',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\chardet\\version.py',
+   'PYMODULE'),
+  ('chardet.enums',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\chardet\\enums.py',
+   'PYMODULE'),
+  ('chardet.universaldetector',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\chardet\\universaldetector.py',
+   'PYMODULE'),
+  ('chardet.sbcsgroupprober',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\chardet\\sbcsgroupprober.py',
+   'PYMODULE'),
+  ('chardet.sbcharsetprober',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\chardet\\sbcharsetprober.py',
+   'PYMODULE'),
+  ('chardet.charsetprober',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\chardet\\charsetprober.py',
+   'PYMODULE'),
+  ('chardet.langturkishmodel',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\chardet\\langturkishmodel.py',
+   'PYMODULE'),
+  ('chardet.langthaimodel',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\chardet\\langthaimodel.py',
+   'PYMODULE'),
+  ('chardet.langrussianmodel',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\chardet\\langrussianmodel.py',
+   'PYMODULE'),
+  ('chardet.langhebrewmodel',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\chardet\\langhebrewmodel.py',
+   'PYMODULE'),
+  ('chardet.langgreekmodel',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\chardet\\langgreekmodel.py',
+   'PYMODULE'),
+  ('chardet.langbulgarianmodel',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\chardet\\langbulgarianmodel.py',
+   'PYMODULE'),
+  ('chardet.hebrewprober',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\chardet\\hebrewprober.py',
+   'PYMODULE'),
+  ('chardet.mbcsgroupprober',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\chardet\\mbcsgroupprober.py',
+   'PYMODULE'),
+  ('chardet.euctwprober',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\chardet\\euctwprober.py',
+   'PYMODULE'),
+  ('chardet.mbcssm',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\chardet\\mbcssm.py',
+   'PYMODULE'),
+  ('chardet.chardistribution',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\chardet\\chardistribution.py',
+   'PYMODULE'),
+  ('chardet.jisfreq',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\chardet\\jisfreq.py',
+   'PYMODULE'),
+  ('chardet.big5freq',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\chardet\\big5freq.py',
+   'PYMODULE'),
+  ('chardet.gb2312freq',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\chardet\\gb2312freq.py',
+   'PYMODULE'),
+  ('chardet.euckrfreq',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\chardet\\euckrfreq.py',
+   'PYMODULE'),
+  ('chardet.euctwfreq',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\chardet\\euctwfreq.py',
+   'PYMODULE'),
+  ('chardet.codingstatemachine',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\chardet\\codingstatemachine.py',
+   'PYMODULE'),
+  ('chardet.mbcharsetprober',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\chardet\\mbcharsetprober.py',
+   'PYMODULE'),
+  ('chardet.big5prober',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\chardet\\big5prober.py',
+   'PYMODULE'),
+  ('chardet.cp949prober',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\chardet\\cp949prober.py',
+   'PYMODULE'),
+  ('chardet.euckrprober',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\chardet\\euckrprober.py',
+   'PYMODULE'),
+  ('chardet.gb2312prober',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\chardet\\gb2312prober.py',
+   'PYMODULE'),
+  ('chardet.eucjpprober',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\chardet\\eucjpprober.py',
+   'PYMODULE'),
+  ('chardet.jpcntx',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\chardet\\jpcntx.py',
+   'PYMODULE'),
+  ('chardet.sjisprober',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\chardet\\sjisprober.py',
+   'PYMODULE'),
+  ('chardet.utf8prober',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\chardet\\utf8prober.py',
+   'PYMODULE'),
+  ('chardet.latin1prober',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\chardet\\latin1prober.py',
+   'PYMODULE'),
+  ('chardet.escprober',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\chardet\\escprober.py',
+   'PYMODULE'),
+  ('chardet.escsm',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\chardet\\escsm.py',
+   'PYMODULE'),
+  ('chardet.charsetgroupprober',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\chardet\\charsetgroupprober.py',
+   'PYMODULE'),
+  ('aiohttp.client_exceptions',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\aiohttp\\client_exceptions.py',
+   'PYMODULE'),
+  ('aiohttp.streams',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\aiohttp\\streams.py',
+   'PYMODULE'),
+  ('aiohttp.signals',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\aiohttp\\signals.py',
+   'PYMODULE'),
+  ('aiohttp.resolver',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\aiohttp\\resolver.py',
+   'PYMODULE'),
+  ('aiohttp.payload_streamer',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\aiohttp\\payload_streamer.py',
+   'PYMODULE'),
+  ('aiohttp.payload',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\aiohttp\\payload.py',
+   'PYMODULE'),
+  ('aiohttp.helpers',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\aiohttp\\helpers.py',
+   'PYMODULE'),
+  ('cgi',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\cgi.py',
+   'PYMODULE'),
+  ('aiohttp.formdata',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\aiohttp\\formdata.py',
+   'PYMODULE'),
+  ('aiohttp.cookiejar',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\aiohttp\\cookiejar.py',
+   'PYMODULE'),
+  ('aiohttp.client',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\aiohttp\\client.py',
+   'PYMODULE'),
+  ('aiohttp.http_websocket',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\aiohttp\\http_websocket.py',
+   'PYMODULE'),
+  ('aiohttp.client_ws',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\aiohttp\\client_ws.py',
+   'PYMODULE'),
+  ('aiohttp.http',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\aiohttp\\http.py',
+   'PYMODULE'),
+  ('aiohttp.multipart',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\aiohttp\\multipart.py',
+   'PYMODULE'),
+  ('aiohttp.hdrs',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\aiohttp\\hdrs.py',
+   'PYMODULE'),
+  ('json',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\json\\__init__.py',
+   'PYMODULE'),
+  ('json.encoder',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\json\\encoder.py',
+   'PYMODULE'),
+  ('json.decoder',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\json\\decoder.py',
+   'PYMODULE'),
+  ('json.scanner',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\json\\scanner.py',
+   'PYMODULE'),
+  ('concurrent.futures',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\concurrent\\futures\\__init__.py',
+   'PYMODULE'),
+  ('concurrent.futures.thread',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\concurrent\\futures\\thread.py',
+   'PYMODULE'),
+  ('concurrent.futures.process',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\concurrent\\futures\\process.py',
+   'PYMODULE'),
+  ('concurrent.futures._base',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\concurrent\\futures\\_base.py',
+   'PYMODULE'),
+  ('concurrent',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\concurrent\\__init__.py',
+   'PYMODULE'),
+  ('discord.backoff',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\discord\\backoff.py',
+   'PYMODULE'),
+  ('discord.webhook',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\discord\\webhook.py',
+   'PYMODULE'),
+  ('discord.player',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\discord\\player.py',
+   'PYMODULE'),
+  ('discord.oggparse',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\discord\\oggparse.py',
+   'PYMODULE'),
+  ('discord.shard',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\discord\\shard.py',
+   'PYMODULE'),
+  ('discord.state',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\discord\\state.py',
+   'PYMODULE'),
+  ('discord.mentions',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\discord\\mentions.py',
+   'PYMODULE'),
+  ('discord.embeds',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\discord\\embeds.py',
+   'PYMODULE'),
+  ('discord.enums',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\discord\\enums.py',
+   'PYMODULE'),
+  ('discord.abc',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\discord\\abc.py',
+   'PYMODULE'),
+  ('discord.context_managers',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\discord\\context_managers.py',
+   'PYMODULE'),
+  ('discord.iterators',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\discord\\iterators.py',
+   'PYMODULE'),
+  ('discord.reaction',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\discord\\reaction.py',
+   'PYMODULE'),
+  ('discord.object',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\discord\\object.py',
+   'PYMODULE'),
+  ('discord.widget',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\discord\\widget.py',
+   'PYMODULE'),
+  ('discord.template',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\discord\\template.py',
+   'PYMODULE'),
+  ('discord.invite',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\discord\\invite.py',
+   'PYMODULE'),
+  ('discord.integrations',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\discord\\integrations.py',
+   'PYMODULE'),
+  ('discord.colour',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\discord\\colour.py',
+   'PYMODULE'),
+  ('colorsys',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\colorsys.py',
+   'PYMODULE'),
+  ('discord.file',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\discord\\file.py',
+   'PYMODULE'),
+  ('discord.role',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\discord\\role.py',
+   'PYMODULE'),
+  ('discord.permissions',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\discord\\permissions.py',
+   'PYMODULE'),
+  ('discord.calls',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\discord\\calls.py',
+   'PYMODULE'),
+  ('discord.errors',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\discord\\errors.py',
+   'PYMODULE'),
+  ('discord.asset',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\discord\\asset.py',
+   'PYMODULE'),
+  ('discord.message',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\discord\\message.py',
+   'PYMODULE'),
+  ('discord.member',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\discord\\member.py',
+   'PYMODULE'),
+  ('discord.relationship',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\discord\\relationship.py',
+   'PYMODULE'),
+  ('discord.flags',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\discord\\flags.py',
+   'PYMODULE'),
+  ('discord.guild',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\discord\\guild.py',
+   'PYMODULE'),
+  ('discord.channel',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\discord\\channel.py',
+   'PYMODULE'),
+  ('discord.activity',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\discord\\activity.py',
+   'PYMODULE'),
+  ('discord.partial_emoji',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\discord\\partial_emoji.py',
+   'PYMODULE'),
+  ('discord.emoji',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\discord\\emoji.py',
+   'PYMODULE'),
+  ('discord.user',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\discord\\user.py',
+   'PYMODULE'),
+  ('discord.appinfo',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\discord\\appinfo.py',
+   'PYMODULE'),
+  ('discord.client',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\discord\\client.py',
+   'PYMODULE'),
+  ('discord.http',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\discord\\http.py',
+   'PYMODULE'),
+  ('discord.opus',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\discord\\opus.py',
+   'PYMODULE'),
+  ('ctypes.util',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\ctypes\\util.py',
+   'PYMODULE'),
+  ('ctypes._aix',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\ctypes\\_aix.py',
+   'PYMODULE'),
+  ('ctypes.macholib.dyld',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\ctypes\\macholib\\dyld.py',
+   'PYMODULE'),
+  ('ctypes.macholib',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\ctypes\\macholib\\__init__.py',
+   'PYMODULE'),
+  ('ctypes.macholib.dylib',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\ctypes\\macholib\\dylib.py',
+   'PYMODULE'),
+  ('ctypes.macholib.framework',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\ctypes\\macholib\\framework.py',
+   'PYMODULE'),
+  ('discord.utils',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\discord\\utils.py',
+   'PYMODULE'),
+  ('asyncio',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\asyncio\\__init__.py',
+   'PYMODULE'),
+  ('asyncio.unix_events',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\asyncio\\unix_events.py',
+   'PYMODULE'),
+  ('asyncio.windows_events',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\asyncio\\windows_events.py',
+   'PYMODULE'),
+  ('asyncio.windows_utils',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\asyncio\\windows_utils.py',
+   'PYMODULE'),
+  ('asyncio.selector_events',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\asyncio\\selector_events.py',
+   'PYMODULE'),
+  ('asyncio.proactor_events',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\asyncio\\proactor_events.py',
+   'PYMODULE'),
+  ('asyncio.base_subprocess',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\asyncio\\base_subprocess.py',
+   'PYMODULE'),
+  ('asyncio.threads',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\asyncio\\threads.py',
+   'PYMODULE'),
+  ('asyncio.subprocess',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\asyncio\\subprocess.py',
+   'PYMODULE'),
+  ('asyncio.runners',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\asyncio\\runners.py',
+   'PYMODULE'),
+  ('asyncio.base_events',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\asyncio\\base_events.py',
+   'PYMODULE'),
+  ('asyncio.trsock',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\asyncio\\trsock.py',
+   'PYMODULE'),
+  ('asyncio.staggered',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\asyncio\\staggered.py',
+   'PYMODULE'),
+  ('asyncio.sslproto',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\asyncio\\sslproto.py',
+   'PYMODULE'),
+  ('asyncio.transports',
+   'c:\\users\\xan '
+   'ives\\appdata\\local\\programs\\python\\python39\\lib\\asyncio\\transports.py',
+   'PYMODULE')])

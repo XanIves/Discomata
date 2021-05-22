@@ -11,7 +11,6 @@ Initially based on a multi-threaded tkinter example template by Benedict Wilkins
 """
 
 import asyncio, discord, os, time
-import readFromFile
 import tkinter as tk
 from tkinter import ttk
 from threading import Thread
@@ -136,7 +135,7 @@ def choose_channel(channelArgument):
 def save_buttons(saveFileName):
     print("save the buttons")
     global userButtons
-    readFromFile.save_commands(saveFileName, userButtons)
+    save_commands(saveFileName, userButtons)
 
 def checkboxFunction():
     global deleteMessage
@@ -147,6 +146,36 @@ def quit():
     finish = True
     root.destroy()
 
+def get_commands(saveFileName):
+    print("Opening saved commands from " + saveFileName)
+    commandList = []
+    file = open(saveFileName, "r")
+    if file.mode == 'r':
+        lines =file.readlines()
+        for line in lines:
+            parts = line.split('@', 1)
+            commandTuple = [parts[0], parts[1].rstrip('\n')]
+            commandList.append(commandTuple)
+        file.close()
+        return commandList
+    else:
+        print("Error: {saveFileName} could not be opened")
+        try:
+            file.close()
+        except:
+            print("Error: {saveFileName} could not be opened")
+        return
+
+def save_commands(saveFileName, userButtons):
+    print("Saving commands to " + saveFileName)
+    try:
+        file = open(saveFileName, "w")
+        for button in userButtons:
+            file.write(button[0].config('text')[-1]+"@")
+            file.write(button[1]+"\n")
+        file.close
+    except ValueError:
+        print("Could not save to file: did you delete the userButtons.ini file?")
 
 # ______________________________________
 #| Creation of GUI windows and elements |
@@ -201,7 +230,7 @@ saveButton = tk.Button(canvas, text="Save Buttons", command = lambda: save_butto
 saveButton.grid(column=1, row=0, sticky="WENS", padx=10, pady=20)
 
 # Open save file for previous commands, and restore saved buttons
-savedCommands = readFromFile.get_commands(saveFileName)
+savedCommands = get_commands(saveFileName)
 print(savedCommands)
 
 for commandTuple in savedCommands:
