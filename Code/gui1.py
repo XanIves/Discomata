@@ -3,9 +3,11 @@
 """
 Created on Wed Aug 26 19:25:31 2020
 
-Python Bot with GUI for macro creation and execution
+Python Bot with GUI for Discord macro creation and execution
 
-@author: Alexander G. Ives, initially based on a multi-threaded tkinter example template by Benedict Wilkins AI
+@author: Alexander G. Ives
+
+Initially based on a multi-threaded tkinter example template by Benedict Wilkins AI
 """
 
 import asyncio, discord, os, time
@@ -19,7 +21,7 @@ load_dotenv()           #Load discord keys and codes from .env file
 
 # My variables
 global message          # This will serve as the queue for my_background_task to check and read from. When value is "empty", loop skips posting message
-message = "empty"
+message = "NULL"
 
 global userButtons      # Create a list to store user-inputted button templates
 userButtons = []
@@ -37,13 +39,6 @@ client = discord.Client()
 saveFileName = "addedButtons.ini"
 global saveButton   # Green "Save" button to save current button states for later
 
-# Root Window. Contains the Left Window and the Right Window
-root = tk.Tk()
-root.protocol("WM_DELETE_WINDOW", quit)
-root.title("D&D Macro Bot")
-root.minsize(200,50)
-root.configure(background='light blue')
-deleteMessage = tk.IntVar()
 
 # Discord syncing stuff
 async def my_background_task():
@@ -153,9 +148,17 @@ def quit():
     root.destroy()
 
 
+# ______________________________________
+#| Creation of GUI windows and elements |
+# ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
 
-######## GUI ########
-
+# Root Window. Contains the Left Window and the Right Window
+root = tk.Tk()
+root.protocol("WM_DELETE_WINDOW", quit)
+root.title("D&D Macro Bot")
+root.minsize(200,50)
+root.configure(background='light blue')
+deleteMessage = tk.IntVar()
 
 # Left Top Window. Contains buttons for adding commands
 subWindow = tk.LabelFrame(root,bd=1,bg='light blue', height=200, text=" Add New Command ", relief="ridge")
