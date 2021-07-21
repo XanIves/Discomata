@@ -5,13 +5,14 @@ block_cipher = None
 
 
 a = Analysis(['Code\\gui1.py'],
-             pathex=['C:\\Users\\Xan Ives\\Desktop\\Coding Projects\\[Python] D&D Discord Controller'],
+             pathex=[('C:\\Users\\Xan Ives\\Desktop\\Coding Projects\\[Python] D&D Discord Controller')],
              binaries=[],
              datas= [
                 ( 'Code/.env', '.' ),
                 ( 'Code/addedButtons.ini', '.' ),
-                ( 'Code/readFromFile.py', '.' )
-                ],
+                ( 'Code/readFromFile.py', '.' ),
+                ( 'Code/discordTheme.json', '.')
+              ],
              hiddenimports=[],
              hookspath=[],
              runtime_hooks=[],
@@ -20,6 +21,7 @@ a = Analysis(['Code\\gui1.py'],
              win_private_assemblies=False,
              cipher=block_cipher,
              noarchive=False)
+
 pyz = PYZ(a.pure, a.zipped_data,
              cipher=block_cipher)
 exe = EXE(pyz,
@@ -40,4 +42,3 @@ coll = COLLECT(exe,
                upx=True,
                upx_exclude=[],
                name='gui1')
-               

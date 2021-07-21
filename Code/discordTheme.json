@@ -1,0 +1,24 @@
+{
+	"themes": [
+		{
+			"name": "discord",
+			"font": "Helvetica 12",
+			"type": "dark",
+			"colors": {
+				"primary": "#7289DA",
+				"secondary": "#444444",
+				"success": "#3BA55C",
+				"info": "#3498db",
+				"warning": "#FAA61a",
+				"danger": "#ED4245",
+				"bg": "#2F3136",
+				"fg": "#ffffff",
+				"selectbg": "#36393F",
+				"selectfg": "#ffffff",
+				"border": "#202225",
+				"inputfg": "#ffffff",
+				"inputbg": "#40444B"
+			}
+		}
+	]
+}

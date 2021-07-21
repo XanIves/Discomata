@@ -1,0 +1,13 @@
+primary		#7289DA
+secondary	
+success		#3BA55C
+info
+warning		#FAA61a
+danger		#ED4245
+bg		#2F3136
+fg		#747F8D
+selectbg	#36393F
+selectfg	#ffffff
+border		#202225
+inputfg		#ffffff
+inputbg		#40444B

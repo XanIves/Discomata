@@ -11,15 +11,18 @@ Initially based on a multi-threaded tkinter example template by Benedict Wilkins
 """
 
 import asyncio, discord, os, time
+from tkinter.constants import LEFT
 import tkinter as tk
 from tkinter import ttk
 from threading import Thread
+import ttkbootstrap
+from ttkbootstrap import Style
 
 from dotenv import load_dotenv
 load_dotenv()           #Load discord keys and codes from .env file
 
 # My variables
-global message          # This will serve as the queue for my_background_task to check and read from. When value is "empty", loop skips posting message
+global message          # This will serve as the queue for my_background_task to check and read from. When value is "NULL", loop skips posting message
 message = "NULL"
 
 global userButtons      # Create a list to store user-inputted button templates
@@ -38,6 +41,8 @@ client = discord.Client()
 saveFileName = "addedButtons.ini"
 global saveButton   # Green "Save" button to save current button states for later
 
+global consoleText
+consoleText = "Starting up program"
 
 # Discord syncing stuff
 async def my_background_task():
@@ -56,7 +61,12 @@ async def my_background_task():
 
 @client.event
 async def on_ready():   #Partially written by Benedict Wilkins AI
+    updateConsole(consoleText)
     print('Logged in as')
+    updateConsole("Logged in as ")
+    updateConsole(client.user.name)
+    updateConsole(client.user.id)
+    updateConsole('------')
     print(client.user.name)
     print(client.user.id)
     print('------')
@@ -87,14 +97,14 @@ def after(t, fun, *args):
 
 def run():
     token = os.environ.get("DISCORD_TOKEN")
-    print("Discord Token: " + token)
+    updateConsole("Discord Token: " + token)
     client.run(token)
 
 def avrae_command(command):
     # This function will take in command and enter it into discord as a text post.
     global message
     if command!=None and command!="empty":
-        print("Button was pressed: " + command)
+        updateConsole("Message sent: " + command)
         message = command
     else:
         print("Error: empty command issued.")
@@ -102,9 +112,9 @@ def avrae_command(command):
 def add_user_command(name, command):
     global userButtons, saveButton, deleteUserButtons
     if name and command:
-        addedButtonTuple = [(tk.Button(canvas, text=name, command = lambda: avrae_command(command))), command]
+        addedButtonTuple = [(ttk.Button(canvas, text=name, command = lambda: avrae_command(command))), command]
         userButtons.append(addedButtonTuple)
-        deleteUserButtons.append(tk.Button(canvas, text="Remove",bg="red", command = lambda: removeCommand(userButtons.index(addedButtonTuple))))
+        deleteUserButtons.append(ttk.Button(canvas, text="Remove", style="danger.TButton",command = lambda: removeCommand(userButtons.index(addedButtonTuple))))
 
         for index, button in enumerate(userButtons):
             button[0].grid(column=1, row=index, sticky="WENS", padx=10, pady=2)
@@ -146,8 +156,15 @@ def quit():
     finish = True
     root.destroy()
 
+def updateConsole(inputText):
+    botConsole.configure(state="normal")
+    botConsole.insert(tk.END, "\n"+str(inputText))
+    botConsole.configure(state="disabled")
+
+
 def get_commands(saveFileName):
     print("Opening saved commands from " + saveFileName)
+    updateConsole("Opening saved commands from " + saveFileName)
     commandList = []
     file = open(saveFileName, "r")
     if file.mode == 'r':
@@ -160,6 +177,7 @@ def get_commands(saveFileName):
         return commandList
     else:
         print("Error: {saveFileName} could not be opened")
+        updateConsole("Error: {saveFileName} could not be opened")
         try:
             file.close()
         except:
@@ -168,6 +186,7 @@ def get_commands(saveFileName):
 
 def save_commands(saveFileName, userButtons):
     print("Saving commands to " + saveFileName)
+    updateConsole("Saving commands to " + saveFileName)
     try:
         file = open(saveFileName, "w")
         for button in userButtons:
@@ -180,54 +199,83 @@ def save_commands(saveFileName, userButtons):
 # ______________________________________
 #| Creation of GUI windows and elements |
 # ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
-
 # Root Window. Contains the Left Window and the Right Window
 root = tk.Tk()
 root.protocol("WM_DELETE_WINDOW", quit)
 root.title("D&D Macro Bot")
-root.minsize(200,50)
-root.configure(background='light blue')
+root.minsize(600,460)
+root.configure()
+# style = Style(theme="darkly")
 deleteMessage = tk.IntVar()
+style = Style(theme='discord', themes_file='discordTheme.json')
 
-# Left Top Window. Contains buttons for adding commands
-subWindow = tk.LabelFrame(root,bd=1,bg='light blue', height=200, text=" Add New Command ", relief="ridge")
-subWindow.pack(fill="y", side="left")
 
-buttonNameEntry = tk.Entry(subWindow)       # Entry field for adding a new command's name
+# style = ttk.Style(root)
+# root.tk.call ('source', '..\\Azure-ttk-theme-main\\azure-dark.tcl')
+# style.theme_use ('azure-dark')
+
+#  __________________________________________________________
+# | "Add New Command" | Contains buttons for adding commands |
+#  ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+subWindow = ttk.LabelFrame(root, height=200, text=" Add Command ")
+
+buttonNameEntry = ttk.Entry(subWindow)       # Entry field for adding a new command's name
 buttonNameEntry.grid(column=1,row=0, sticky="WESN")
-buttonNameTitle = tk.Label(subWindow, text="Command Name",bg='light blue')
-buttonNameTitle.grid(column=0,row=0, sticky="WS")
+buttonNameTitle = ttk.Label(subWindow, text="Command Name")
+buttonNameTitle.grid(column=0,row=0, sticky="W",padx=10, pady=5)
 
-buttonCommandEntry = tk.Entry(subWindow)    # Entry field for adding a new command's text to be executed
-buttonCommandEntry.grid(column=1,row=1, sticky="WESN")
-buttonCommandTitle = tk.Label(subWindow, text="Command Text",bg='light blue')
-buttonCommandTitle.grid(column=0,row=1, sticky="WS")
+buttonCommandEntry = ttk.Entry(subWindow)    # Entry field for adding a new command's text to be executed
+buttonCommandEntry.grid(column=1,row=1, sticky="WESN", pady=10,)
+buttonCommandTitle = ttk.Label(subWindow, text="Command Text")
+buttonCommandTitle.grid(column=0,row=1, sticky="W",padx=10, pady=5)
 
-addButtonButton = tk.Button(subWindow, text="Add", command = lambda: add_user_command(buttonNameEntry.get(), buttonCommandEntry.get()))
-addButtonButton.grid(column=2, row=0, rowspan=2, sticky="NS")
+addButtonButton = ttk.Button(subWindow,style="primary.TButton",text="Add", command = lambda: add_user_command(buttonNameEntry.get(), buttonCommandEntry.get()))
+addButtonButton.grid(column=2, row=0, rowspan=2, sticky="NS" ,padx=10, pady=10)
 
-# Bottom of Left Top Window. Contains an entry field and a button to choose which channel to post to.
-channelWindow = tk.LabelFrame(subWindow,bd=1,bg='light blue', height=200, text=" Channel Settings ", relief="ridge")
-channelWindow.grid(column=0,row=2, sticky="WS", columnspan=3, pady=20)
+#  _______________________________________________________________________________________________
+# | "Channel Settings" | Contains an entry field and a button to choose which channel to post to. |
+#  ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+channelWindow = ttk.LabelFrame(root, height=200, text=" Settings ")
 
-channelNameEntry = tk.Entry(channelWindow)       # Entry field for adding a new command's name
+channelNameEntry = ttk.Entry(channelWindow)       # Entry field for adding a new command's name
 channelNameEntry.grid(column=1,row=2)
-channelNameTitle = tk.Label(channelWindow, text="Channel Id           ",bg='light blue')
-channelNameTitle.grid(column=0,row=2, sticky="WS")
+channelNameTitle = ttk.Label(channelWindow, text="Channel Id           ")
+channelNameTitle.grid(column=0,row=2, sticky="W")
 
-chooseChannelButton = tk.Button(channelWindow, text="Set Channel", command = lambda: choose_channel(channelNameEntry.get()))
+chooseChannelButton = ttk.Button(channelWindow, text="Set Channel", command = lambda: choose_channel(channelNameEntry.get()))
 chooseChannelButton.grid(column=2, row=2, sticky="NW", padx=10, pady=5)
 
-removeMessageCheckBox = tk.Checkbutton(channelWindow, text="Delete Message\nAfter Post", variable=deleteMessage, command = lambda: checkboxFunction())
+removeMessageCheckBox = ttk.Checkbutton(channelWindow, text="Delete Message\nAfter Post", variable=deleteMessage, command = lambda: checkboxFunction())
 removeMessageCheckBox.grid(column=2, row=3, sticky="NS", padx=10, pady=5)
 
-# Right Window. Contains all the buttons that the user has added
-canvas = tk.LabelFrame(root, bd=0, highlightthickness=0, bg='light blue', text=" Buttons ")
-canvas.pack(fill="y", side="left")
+#  _________________________________________________________________________
+# | "Console" | A text console for the user to input messages into directly |
+#  ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+# Notebook
+notebook = ttk.Notebook(root,style="primary.TNotebook")
+# Tab 1
+notebookTab1 = ttk.Frame(notebook, width=335, height=150, style="primary.TNotebook")
+notebookTab2 = ttk.Frame(notebook, width=335, height=150)
+notebook.add(notebookTab1, text='Bot Console')
+notebook.add(notebookTab2, text='Chat Console')
+
+notebook.pack(side=tk.RIGHT, expand=True, fill=tk.BOTH)
+# Bot Console
+botConsole = tk.Text(notebookTab1,bg="#36393F", fg="#ffffff")
+botConsole.pack(fill="both", side="left", expand=True)
+# Chat Console
+chatConsole = tk.Text(notebookTab2,bg="#36393F", fg="#ffffff")
+chatConsole.pack(fill="both", side="left", expand=True)
+
+#  ______________________________________________________________
+# | "Buttons" | Contains all the buttons that the user has added |
+#  ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+canvas = ttk.LabelFrame(root, text=" Buttons ", width = 500)
+
 colors = ["black", "white", "red", "green", "blue"]
     # Save Button
-saveButton = tk.Button(canvas, text="Save Buttons", command = lambda: save_buttons(saveFileName), bg='green', fg="white")
-saveButton.grid(column=1, row=0, sticky="WENS", padx=10, pady=20)
+saveButton = ttk.Button(canvas, text="Save Buttons", style="success.TButton", command = lambda: save_buttons(saveFileName))
+saveButton.grid(column=1, row=0, sticky="WENS", padx=10, pady=20, columnspan=2)
 
 # Open save file for previous commands, and restore saved buttons
 savedCommands = get_commands(saveFileName)
@@ -235,6 +283,18 @@ print(savedCommands)
 
 for commandTuple in savedCommands:
     add_user_command(commandTuple[0], commandTuple[1])
+
+#  ________________________________________________________________________________
+# | Packing | Defines the layout of the UI after all the buttons have been created |
+#  ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+subWindow.pack(fill="both",side="top",padx=5, pady=10,)
+channelWindow.pack(fill="both", side="top",padx=5, pady=10,)
+#channelWindow.grid(column=0,row=2, sticky="WS", columnspan=3, pady=20)
+canvas.pack(fill="y", side="left", expand=tk.YES,padx=5, pady=10,)
+
+
+
+
 
 #Threading written by Benedict Wilkins AI, taken from his example blog post
 global finish
