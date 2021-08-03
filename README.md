@@ -1,5 +1,5 @@
 # DnD-Avrae-GUI
-Python GUI for sending text commands through a Discord bot to be read and interpreted by the [Avrae Discord Bot](https://github.com/avrae/avrae)
+Python GUI for sending text commands through a Discord bot.
 
 # How To Run The Bot
 To run this bot locally, you need to create a .env file that stores your discord bot token. This can be done with the following steps:
