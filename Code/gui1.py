@@ -44,6 +44,12 @@ global saveButton   # Green "Save" button to save current button states for late
 global consoleText
 consoleText = "Starting up program"
 
+global chatText
+chatText = ""
+
+global lastUsername
+lastUsername = ""
+
 # Discord syncing stuff
 async def my_background_task():
     global message, channelID, finish, deleteMessage
@@ -58,6 +64,17 @@ async def my_background_task():
                 await sentMessage.delete()  # deletes the original command posted to keep the chat clean
             message = "NULL"
         await asyncio.sleep(0.2)  # Measured in seconds. Set to 300 for 5 minutes
+
+@client.event
+async def on_message(message):
+    global lastUsername
+    username = message.author.name
+    if (username != lastUsername):
+        updateChat(username+"\n"+message.content)
+        lastUsername = username
+    else:
+        updateChat(message.content)
+
 
 @client.event
 async def on_ready():   #Partially written by Benedict Wilkins AI
@@ -157,10 +174,16 @@ def quit():
     root.destroy()
 
 def updateConsole(inputText):
+    print(inputText)
     botConsole.configure(state="normal")
     botConsole.insert(tk.END, "\n"+str(inputText))
     botConsole.configure(state="disabled")
 
+# This function updates the text in the chat console
+def updateChat(inputText):
+    chatConsole.configure(state="normal")
+    chatConsole.insert(tk.END, "\n"+str(inputText))
+    chatConsole.configure(state="disabled")
 
 def get_commands(saveFileName):
     print("Opening saved commands from " + saveFileName)
@@ -264,7 +287,9 @@ notebook.pack(side=tk.RIGHT, expand=True, fill=tk.BOTH)
 botConsole = tk.Text(notebookTab1,bg="#36393F", fg="#ffffff")
 botConsole.pack(fill="both", side="left", expand=True)
 # Chat Console
-chatConsole = tk.Text(notebookTab2,bg="#36393F", fg="#ffffff")
+chatConsoleWindow = tk.PanedWindow(notebookTab2, orient=tk.VERTICAL)
+chatConsoleWindow.pack(fill="both", side="left", expand=True)
+chatConsole = tk.Text(chatConsoleWindow,bg="#36393F", fg="#ffffff")
 chatConsole.pack(fill="both", side="left", expand=True)
 
 #  ______________________________________________________________
