@@ -1,5 +1,10 @@
-# DnD-Avrae-GUI
-Python GUI for sending text commands through a Discord bot.
+# Discomata Description
+A Python GUI for managing a Discord bot. Supports Macros and target chat history currently, will support standard message posting in the future.
+
+# Example of the GUI in action:
+![image](https://user-images.githubusercontent.com/38440635/128288351-04158772-e118-47f1-b384-fd73eea7a7a3.png)
+
+
 
 # How To Run The Bot
 To run this bot locally, you need to create a .env file that stores your discord bot token. This can be done with the following steps:
