@@ -1,4 +1,4 @@
-# DnD-Avrae-GUI
+# Discomata
 Python GUI for sending text commands through a Discord bot.
 
 # How To Run The Bot
