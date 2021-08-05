@@ -70,7 +70,7 @@ async def on_message(message):
     global lastUsername
     username = message.author.name
     if (username != lastUsername):
-        updateChat(username+"\n"+message.content)
+        updateChat("\n"+username+":\n"+message.content)
         lastUsername = username
     else:
         updateChat(message.content)
@@ -291,6 +291,7 @@ chatConsoleWindow = tk.PanedWindow(notebookTab2, orient=tk.VERTICAL)
 chatConsoleWindow.pack(fill="both", side="left", expand=True)
 chatConsole = tk.Text(chatConsoleWindow,bg="#36393F", fg="#ffffff")
 chatConsole.pack(fill="both", side="left", expand=True)
+chatConsole.configure(state="disabled")
 
 #  ______________________________________________________________
 # | "Buttons" | Contains all the buttons that the user has added |
