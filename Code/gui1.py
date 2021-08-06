@@ -14,6 +14,11 @@ import asyncio, discord, os, time
 from tkinter.constants import LEFT
 import tkinter as tk
 from tkinter import ttk
+from tkinter import *
+from tkinter import font , filedialog
+from markdown2 import Markdown
+from pygments.formatters import html
+from tkhtmlview import HTMLLabel
 from threading import Thread
 import ttkbootstrap
 from ttkbootstrap import Style
@@ -71,9 +76,11 @@ async def on_message(message):
     username = message.author.name
     if (username != lastUsername):
         updateChat("\n"+username+":\n"+message.content)
+        updateChatWindow("\n***"+username+":***\n"+message.content)
         lastUsername = username
     else:
         updateChat(message.content)
+        updateChatWindow(message.content)
 
 
 @client.event
@@ -89,7 +96,6 @@ async def on_ready():   #Partially written by Benedict Wilkins AI
     print('------')
     #await channel.send("!beyond https://ddb.ac/characters/28780677/kdQS4u")
     client.loop.create_task(my_background_task()) # best to put it in here
-
 
 class Sleep:    # This class was written by Benedict Wilkins AI
     def __init__(self, wait):
@@ -117,7 +123,7 @@ def run():
     updateConsole("Discord Token: " + token)
     client.run(token)
 
-def avrae_command(command):
+def discord_command(command):
     # This function will take in command and enter it into discord as a text post.
     global message
     if command!=None and command!="empty":
@@ -129,7 +135,7 @@ def avrae_command(command):
 def add_user_command(name, command):
     global userButtons, saveButton, deleteUserButtons
     if name and command:
-        addedButtonTuple = [(ttk.Button(canvas, text=name, command = lambda: avrae_command(command))), command]
+        addedButtonTuple = [(ttk.Button(canvas, text=name, command = lambda: discord_command(command))), command]
         userButtons.append(addedButtonTuple)
         deleteUserButtons.append(ttk.Button(canvas, text="Remove", style="danger.TButton",command = lambda: removeCommand(userButtons.index(addedButtonTuple))))
 
@@ -225,7 +231,7 @@ def save_commands(saveFileName, userButtons):
 # Root Window. Contains the Left Window and the Right Window
 root = tk.Tk()
 root.protocol("WM_DELETE_WINDOW", quit)
-root.title("D&D Macro Bot")
+root.title("Discomata")
 root.minsize(600,460)
 root.configure()
 # style = Style(theme="darkly")
@@ -241,7 +247,6 @@ style = Style(theme='discord', themes_file='discordTheme.json')
 # | "Add New Command" | Contains buttons for adding commands |
 #  ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
 subWindow = ttk.LabelFrame(root, height=200, text=" Add Command ")
-
 buttonNameEntry = ttk.Entry(subWindow)       # Entry field for adding a new command's name
 buttonNameEntry.grid(column=1,row=0, sticky="WESN")
 buttonNameTitle = ttk.Label(subWindow, text="Command Name")
@@ -279,8 +284,10 @@ notebook = ttk.Notebook(root,style="primary.TNotebook")
 # Tab 1
 notebookTab1 = ttk.Frame(notebook, width=335, height=150, style="primary.TNotebook")
 notebookTab2 = ttk.Frame(notebook, width=335, height=150)
+notebookTab3 = ttk.Frame(notebook, width=335, height=150)
 notebook.add(notebookTab1, text='Bot Console')
 notebook.add(notebookTab2, text='Chat Console')
+notebook.add(notebookTab3, text='HTML Chat Console')
 
 notebook.pack(side=tk.RIGHT, expand=True, fill=tk.BOTH)
 # Bot Console
@@ -292,6 +299,35 @@ chatConsoleWindow.pack(fill="both", side="left", expand=True)
 chatConsole = tk.Text(chatConsoleWindow,bg="#36393F", fg="#ffffff")
 chatConsole.pack(fill="both", side="left", expand=True)
 chatConsole.configure(state="disabled")
+# HTML Chat Console
+def onInputChange(event):
+    newText = htmlWindow.inputeditor.get(1.0, tk.END)
+    discord_command(newText)
+    htmlWindow.inputeditor.delete(1.0, tk.END)
+
+def updateChatWindow(text):
+    newText = text
+    oldHtmlText = convertTextToHtml(htmlWindow.outputbox.get(1.0, tk.END))
+    newHtmlText = convertTextToHtml(newText)
+    htmlWindow.outputbox.set_html(oldHtmlText+newHtmlText)
+
+def convertTextToHtml(markdownText):
+    md2html = Markdown()
+    html = md2html.convert(markdownText)
+    return html
+
+htmlChatConsoleWindow = tk.Frame(notebookTab3, width=335, height=150)
+htmlChatConsoleWindow.pack(fill="both", side="left", expand=True)
+htmlWindow = tk.Frame(htmlChatConsoleWindow, width=335, height=150)
+htmlWindow.pack(fill=BOTH, expand=1)
+htmlWindow.myfont = font.Font(family="Helvetica", size=14)
+htmlWindow.pack(fill=BOTH, expand=1)
+htmlWindow.inputeditor = Text(htmlWindow, width="1" , height = "0.25", font=htmlWindow.myfont)
+htmlWindow.inputeditor.pack(fill=X, expand=1, side=BOTTOM)
+htmlWindow.outputbox = HTMLLabel(htmlWindow, width="1", background="gray", html="<h1>Welcome</h1>")
+htmlWindow.outputbox.pack(fill="both", expand=1, side=TOP)
+htmlWindow.outputbox.fit_height()
+htmlWindow.inputeditor.bind("<Return>", onInputChange)
 
 #  ______________________________________________________________
 # | "Buttons" | Contains all the buttons that the user has added |
@@ -316,7 +352,7 @@ for commandTuple in savedCommands:
 subWindow.pack(fill="both",side="top",padx=5, pady=10,)
 channelWindow.pack(fill="both", side="top",padx=5, pady=10,)
 #channelWindow.grid(column=0,row=2, sticky="WS", columnspan=3, pady=20)
-canvas.pack(fill="y", side="left", expand=tk.YES,padx=5, pady=10,)
+canvas.pack(fill=tk.BOTH, side="left", expand=tk.NO,padx=5, pady=10,)
 
 
 
