@@ -1,5 +1,5 @@
 # Discomata Description
-A Python GUI for managing a Discord bot. Supports Macros and target chat history currently, will support standard message posting in the future.
+A Python + Tkinter client for directly controlling a Discord bot's chat messages. Supports Macros and target chat history currently, will support standard message posting in the future.
 
 # Example of the GUI in action:
 ![image](https://user-images.githubusercontent.com/38440635/128288351-04158772-e118-47f1-b384-fd73eea7a7a3.png)
