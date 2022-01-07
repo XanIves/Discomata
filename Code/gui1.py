@@ -64,8 +64,8 @@ async def my_background_task():
     global MESSAGE, CHANNEL_ID, FINISH, deleteMessage
     await client.wait_until_ready() # ensures cache is loaded
     channel = client.get_channel(id=CHANNEL_ID) # replace with target channel id
-
     while not client.is_closed():
+        botUsername.set = "Fuck you"
         if MESSAGE != "NULL":
             channel = client.get_channel(id=CHANNEL_ID) # replace with target channel id
             sentMessage = await channel.send(MESSAGE)
@@ -99,6 +99,7 @@ async def on_ready():   #Partially written by Benedict Wilkins AI
     print(client.user.id)
     print('------')
     #await channel.send("!beyond https://ddb.ac/characters/28780677/kdQS4u")
+
     client.loop.create_task(my_background_task()) # best to put it in here
 
 class Sleep:    # This class was written by Benedict Wilkins AI
@@ -217,18 +218,23 @@ def save_commands(saveFileName):
 root = tk.Tk()
 root.protocol("WM_DELETE_WINDOW", quit)
 root.title("Discomata")
-root.minsize(600,460)
 root.configure()
 deleteMessage = tk.IntVar()
-style = Style(theme='discord', themes_file='discordTheme.json')
+discordStyle = Style(theme='discord', themes_file='discordTheme.json')
+
+
+botUsername = tk.StringVar()
+botUsername.set("Loading...")
 
 #  _____________________________________________________
 # | Frame Creation | For defining the layout of the GUI |
 #  ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+botInfoFrame     = ttk.Frame     (root, width=335, height=150,relief="raised")
 addCommandsFrame = ttk.LabelFrame(root, height=200, width=400, text=" Add Command ")
-settingsFrame    = ttk.LabelFrame(root, text=" Settings ")
+settingsFrame    = ttk.LabelFrame(botInfoFrame, text=" Settings ")
 useCommandsFrame = ttk.LabelFrame(root, text=" Buttons ")
 consoleNotebook  = ttk.Notebook  (root, style="primary.TNotebook")
+settingsWindow = tk.PanedWindow(settingsFrame, orient=tk.VERTICAL)
 
 #  _______________________________________________________
 # | "Add Commands" | Contains buttons for adding commands |
@@ -245,36 +251,6 @@ buttonCommandTitle.grid(column=0,row=1)
 
 addButtonButton = ttk.Button(addCommandsFrame,width = 4,style="primary.TButton",text="Add", command = lambda: add_user_command(buttonNameEntry.get(), buttonCommandEntry.get()))
 addButtonButton.grid(column=2, row=0, rowspan=2, sticky="NS", padx=10)
-
-#  _______________________________________________________________________________________________
-# | "Settings" | Contains an entry field and a button to choose which channel to post to. |
-#  ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
-channelNameEntry = ttk.Entry(settingsFrame)       # Entry field for adding a new command's name
-channelNameEntry.grid(column=1,row=2)
-channelNameTitle = ttk.Label(settingsFrame, text="Channel Id")
-channelNameTitle.grid(column=0,row=2, sticky="W")
-
-chooseChannelButton = ttk.Button(
-    settingsFrame,
-    text="Save",
-    style="success.TButton",
-    command = lambda: choose_channel(channelNameEntry.get())
-)
-chooseChannelButton.grid(column=2, row=2, sticky="NW", padx=10, pady=5)
-
-removeMessageTextLabel = ttk.Label(
-    settingsFrame,
-    text = "Delete Message\nAfter Post?",
-    style="light.TLabel"
-)
-removeMessageTextLabel.grid(column=0, row=3, sticky="W")
-
-removeMessageCheckBox = ttk.Checkbutton(
-    settingsFrame,
-    variable=deleteMessage,
-    command = lambda: checkboxFunction()
-)
-removeMessageCheckBox.grid(column=1, row=3, sticky="NS", padx=10, pady=5, columnspan=2)
 
 #  _________________________________________________________________________
 # | "Console" | A text console for the user to input messages into directly |
@@ -346,6 +322,40 @@ SAVE_BUTTON.grid(column=1, row=1, sticky="WENS", padx=10, pady=20, columnspan=2)
 #  _________________________________________________
 # | Bot Info | Information and settings for the bot |
 #  ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+# fetch the username of the bot in the server it's connected to.
+
+botUsernameLabel = ttk.Label(botInfoFrame, textvariable=botUsername, style="primary.TLabel")
+botUsernameLabel.pack(side=tk.LEFT, padx=10, pady=10)
+
+#  _______________________________________________________________________________________________
+# | "Settings" | Contains an entry field and a button to choose which channel to post to. |
+#  ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+channelNameEntry = ttk.Entry(settingsFrame)       # Entry field for adding a new command's name
+channelNameEntry.grid(column=1,row=2)
+channelNameTitle = ttk.Label(settingsFrame, text="Channel Id")
+channelNameTitle.grid(column=0,row=2, sticky="W")
+
+chooseChannelButton = ttk.Button(
+    settingsFrame,
+    text="Save",
+    style="success.TButton",
+    command = lambda: choose_channel(channelNameEntry.get())
+)
+chooseChannelButton.grid(column=2, row=2, sticky="NW", padx=10, pady=5)
+
+removeMessageTextLabel = ttk.Label(
+    settingsFrame,
+    text = "Delete Message\nAfter Post?",
+    style="light.TLabel"
+)
+removeMessageTextLabel.grid(column=0, row=3, sticky="W")
+
+removeMessageCheckBox = ttk.Checkbutton(
+    settingsFrame,
+    variable=deleteMessage,
+    command = lambda: checkboxFunction()
+)
+removeMessageCheckBox.grid(column=1, row=3, sticky="NS", padx=10, pady=5, columnspan=2)
 
 #  ________________________________________________________________________________
 # | Packing | Defines the layout of the UI after all the buttons have been created |
@@ -353,7 +363,7 @@ SAVE_BUTTON.grid(column=1, row=1, sticky="WENS", padx=10, pady=20, columnspan=2)
 addCommandsFrame.pack      (fill=tk.BOTH, side=tk.TOP,padx=5, pady=10)
 settingsFrame.pack         (fill=tk.BOTH, side=tk.TOP,padx=5, pady=10)
 useCommandsFrame.pack      (fill=tk.BOTH, side=tk.TOP,padx=5, pady=10,expand=tk.YES)
-
+botInfoFrame.pack          (fill=tk.BOTH, side=tk.BOTTOM,padx=5, pady=10)
 
 
 #Threading written by Benedict Wilkins AI, taken from his example blog post
