@@ -65,7 +65,6 @@ async def my_background_task():
     await client.wait_until_ready() # ensures cache is loaded
     channel = client.get_channel(id=CHANNEL_ID) # replace with target channel id
     while not client.is_closed():
-        botUsername.set = "Fuck you"
         if MESSAGE != "NULL":
             channel = client.get_channel(id=CHANNEL_ID) # replace with target channel id
             sentMessage = await channel.send(MESSAGE)
@@ -222,10 +221,6 @@ root.configure()
 deleteMessage = tk.IntVar()
 discordStyle = Style(theme='discord', themes_file='discordTheme.json')
 
-
-botUsername = tk.StringVar()
-botUsername.set("Loading...")
-
 #  _____________________________________________________
 # | Frame Creation | For defining the layout of the GUI |
 #  ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
@@ -324,7 +319,7 @@ SAVE_BUTTON.grid(column=1, row=1, sticky="WENS", padx=10, pady=20, columnspan=2)
 #  ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
 # fetch the username of the bot in the server it's connected to.
 
-botUsernameLabel = ttk.Label(botInfoFrame, textvariable=botUsername, style="primary.TLabel")
+botUsernameLabel = ttk.Label(botInfoFrame, text="Loading . . .", style="primary.TLabel")
 botUsernameLabel.pack(side=tk.LEFT, padx=10, pady=10)
 
 #  _______________________________________________________________________________________________
