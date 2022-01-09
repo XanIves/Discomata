@@ -26,38 +26,51 @@ from tkhtmlview import HTMLLabel
 import ttkbootstrap
 from ttkbootstrap import Style
 
-load_dotenv()           #Load discord keys and codes from .env file
 
-# This will serve as the queue for my_background_task to check and read from. When value is "NULL", loop skips posting message
-global MESSAGE
-MESSAGE = "NULL"
+########################################################################
+# Here are the global variables that need to be shared across threads. #
+#
+########################################################################
 
-# This variable stores the list of commands
-global USER_BUTTONS
-USER_BUTTONS = []
+# A boolean IntVar. 0 = False, 1 = True for deleting messages after a short delay upon sending.
+global deleteMessage
 
 # This variable will store the list of buttons next to user buttons to be deleted.
-global DELETE_USER_BUTTONS
-DELETE_USER_BUTTONS = []
+global DELETE_BUTTONS;  DELETE_BUTTONS = []
 
-global CHANNEL_ID
-CHANNEL_ID = 748651797350187139
+# This variable stores the list of commands that the user has created.
+global MACRO_BUTTONS;    MACRO_BUTTONS = []
 
-global deleteMessage    # Controls whether a message gets deleted after very short period of time (~1s). Useful for calling Diceparser, less for Avrae
-#look for the declaration of this variable after the root declaration
+# This will serve as the queue for my_background_task to check and read from. When value is "NULL", loop skips posting message
+global MESSAGE;         MESSAGE = "NULL"
 
+global chatLog; chatLog = ""
+global SERVER_ID;           SERVER_ID       = 495421572786683918
+global SERVER_NAME;         SERVER_NAME     = "The Server"
+global SERVER_LIST;         SERVER_LIST     = []
+
+global CHANNEL_ID;          CHANNEL_ID      = 748651797350187139
+global CHANNEL_NAME;        CHANNEL_NAME    = "test"
+global CHANNEL_LIST;        CHANNEL_LIST    = []
+
+global CONSOLE_TEXT;        CONSOLE_TEXT    = "Starting up program..."
+global CHAT_TEXT;           CHAT_TEXT       = ""
+global LAST_USERNAME;       LAST_USERNAME   = ""
+
+saveFileName = "addedButtons.ini"
 client = discord.Client()
-SAVE_FILE_NAME = "addedButtons.ini"
-global SAVE_BUTTON   # Green "Save" button to save current button states for later
+load_dotenv()           #Load discord keys and codes from .env file
 
-global CONSOLE_TEXT
-CONSOLE_TEXT = "Starting up program"
+# Create class to handle discord.py bot information
+class DiscordBot:
+    def __init__(self, token):
+        self.token = token
+        self.client = discord.Client()
 
-global CHAT_TEXT
-CHAT_TEXT = ""
+    def run(self):
+        self.client.run(self.token)
 
-global LAST_USERNAME
-LAST_USERNAME = ""
+
 
 # Discord syncing stuff
 async def my_background_task():
@@ -77,9 +90,12 @@ async def my_background_task():
 async def on_message(message):
     global LAST_USERNAME
     username = message.author.name
+    userProfilePicture = message.author.avatar_url
+
     if (username != LAST_USERNAME):
         updateConsole("\n"+username+":\n"+message.content, chatConsole)
-        updateChatWindow("\n***"+username+":***\n"+message.content)
+        updateChatWindow("<h4>"+username+":</h4>"+message.content)
+        #updateChatWindow("<img src='"userProfilePicture"' width='50' height='50'/>")
         LAST_USERNAME = username
     else:
         updateConsole(message.content, chatConsole)
@@ -98,7 +114,14 @@ async def on_ready():   #Partially written by Benedict Wilkins AI
     print(client.user.id)
     print('------')
     #await channel.send("!beyond https://ddb.ac/characters/28780677/kdQS4u")
-
+    for guild in client.guilds:
+        print(guild.name)
+    for guild in client.guilds:
+        if guild.id == SERVER_ID:
+            for channel in guild.channels:
+                if channel.type == discord.ChannelType.text:
+                    CHANNEL_LIST.append(channel.name)
+                    print("Channel: " + channel.name, botConsole)
     client.loop.create_task(my_background_task()) # best to put it in here
 
 class Sleep:    # This class was written by Benedict Wilkins AI
@@ -123,6 +146,7 @@ def after(t, fun, *args):
         root.after(t, fun, *args)
 
 def run():
+    global SERVER_LIST, CHANNEL_LIST, SERVER_ID
     token = os.environ.get("DISCORD_TOKEN")
     updateConsole("Discord Token: " + token, botConsole)
     client.run(token)
@@ -142,26 +166,26 @@ def discord_command(command):
         print("Error: empty command issued.")
 
 def add_user_command(name, command):
-    global USER_BUTTONS, SAVE_BUTTON, DELETE_USER_BUTTONS
+    global MACRO_BUTTONS, SAVE_BUTTON, DELETE_BUTTONS
     if name and command:
         addedButtonTuple = [(ttk.Button(useCommandsScrollbar, text=name, command = lambda: discord_command(command))), command]
-        USER_BUTTONS.append(addedButtonTuple)
-        DELETE_USER_BUTTONS.append(ttk.Button(useCommandsScrollbar, text="Remove", style="danger.TButton",command = lambda: removeCommand(USER_BUTTONS.index(addedButtonTuple))))
+        MACRO_BUTTONS.append(addedButtonTuple)
+        DELETE_BUTTONS.append(ttk.Button(useCommandsScrollbar, text="Remove", style="danger.TButton",command = lambda: removeCommand(MACRO_BUTTONS.index(addedButtonTuple))))
 
-        for index, button in enumerate(USER_BUTTONS):
+        for index, button in enumerate(MACRO_BUTTONS):
             button[0].grid(column=1, row=index, sticky="WENS", padx=10, pady=2)
 
-        for index, button in enumerate(DELETE_USER_BUTTONS):
+        for index, button in enumerate(DELETE_BUTTONS):
             button.grid(column=2, row=index, sticky="WENS", padx=10, pady=2)
 
 def removeCommand(commandIndex):
-    global USER_BUTTONS, DELETE_USER_BUTTONS
+    global MACRO_BUTTONS, DELETE_BUTTONS
     print("commandIndex: ", commandIndex)
-    USER_BUTTONS[commandIndex][0].grid_forget()
-    DELETE_USER_BUTTONS[commandIndex].grid_forget()
+    MACRO_BUTTONS[commandIndex][0].grid_forget()
+    DELETE_BUTTONS[commandIndex].grid_forget()
 
-    del USER_BUTTONS[commandIndex]
-    del DELETE_USER_BUTTONS[commandIndex]
+    del MACRO_BUTTONS[commandIndex]
+    del DELETE_BUTTONS[commandIndex]
 
 def setMessageDeleteValue(boolValue):
     global deleteMessage
@@ -170,6 +194,10 @@ def setMessageDeleteValue(boolValue):
 def choose_channel(channelArgument):
     global CHANNEL_ID
     CHANNEL_ID = int(channelArgument)
+
+def choose_server(serverArgument):
+    global SERVER_ID
+    SERVER_ID = serverArgument
 
 def checkboxFunction():
     global deleteMessage
@@ -198,16 +226,16 @@ def get_commands(saveFileName):
     return commandList
 
 def save_commands(saveFileName):
-    global USER_BUTTONS
+    global MACRO_BUTTONS
     print("Saving commands to " + saveFileName)
     updateConsole("Saving commands to " + saveFileName, botConsole)
     try:
         with open(saveFileName, "w") as file:
-            for button in USER_BUTTONS:
+            for button in MACRO_BUTTONS:
                 file.write(button[0].config('text')[-1]+"@")
                 file.write(button[1]+"\n")
     except ValueError:
-        print("Could not save to file: did you delete the USER_BUTTONS.ini file?")
+        print("Could not save to file: did you delete the MACRO_BUTTONS.ini file?")
 
 # ______________________________________
 #| Creation of GUI windows and elements |
@@ -224,12 +252,13 @@ discordStyle = Style(theme='discord', themes_file='discordTheme.json')
 #  _____________________________________________________
 # | Frame Creation | For defining the layout of the GUI |
 #  ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
-botInfoFrame     = ttk.Frame     (root, width=335, height=150,relief="raised")
-addCommandsFrame = ttk.LabelFrame(root, height=200, width=400, text=" Add Command ")
-settingsFrame    = ttk.LabelFrame(botInfoFrame, text=" Settings ")
-useCommandsFrame = ttk.LabelFrame(root, text=" Buttons ")
-consoleNotebook  = ttk.Notebook  (root, style="primary.TNotebook")
-settingsWindow = tk.PanedWindow(settingsFrame, orient=tk.VERTICAL)
+botInfoFrame     = ttk.Frame      (root, width=335, height=150,relief="raised")
+addCommandsFrame = ttk.LabelFrame (root, height=200, width=400, text=" Add Command ")
+settingsFrame    = ttk.LabelFrame (botInfoFrame, text=" Settings ")
+useCommandsFrame = ttk.LabelFrame (root, text=" Buttons ")
+consoleNotebook  = ttk.Notebook   (root, style="primary.TNotebook")
+settingsWindow   = ttk.PanedWindow(settingsFrame, orient=tk.VERTICAL)
+channelsFrame    = ttk.PanedWindow(root, orient=tk.VERTICAL, width=100, height=150)
 
 #  _______________________________________________________
 # | "Add Commands" | Contains buttons for adding commands |
@@ -274,26 +303,26 @@ def onInputChange(event):
     discord_command(newText)
     htmlWindow.inputeditor.delete(1.0, tk.END)
 
-def updateChatWindow(text):
-    newText = text
-    oldHtmlText = convertTextToHtml(htmlWindow.outputbox.get(1.0, tk.END))
-    newHtmlText = convertTextToHtml(newText)
-    htmlWindow.outputbox.set_html(oldHtmlText+newHtmlText)
+def updateChatWindow(newText):
+    global chatLog
+    chatLog += newText + "<br>"
+    updatedChatlog = convertTextToHtml(chatLog)
+    htmlWindow.outputbox.set_html(updatedChatlog)
 
-def convertTextToHtml(markdownText):
+def convertTextToHtml(textInMarkdownFormat):
     md2html = Markdown()
-    html = md2html.convert(markdownText)
-    return html
+    textInHtmlFormat = md2html.convert(textInMarkdownFormat)
+    return textInHtmlFormat
 
 htmlChatConsoleWindow = tk.Frame(notebookTab3, width=335, height=150)
 htmlChatConsoleWindow.pack(fill="both", side="left", expand=True)
 htmlWindow = tk.Frame(htmlChatConsoleWindow, width=335, height=150)
 htmlWindow.pack(fill=BOTH, expand=1)
-htmlWindow.myfont = font.Font(family="Helvetica", size=14)
+htmlWindow.myfont = font.Font(family="Helvetica", size=12)
 htmlWindow.pack(fill=BOTH, expand=1)
 htmlWindow.inputeditor = Text(htmlWindow, width="1" , height = "0.25", font=htmlWindow.myfont)
 htmlWindow.inputeditor.pack(fill=X, expand=1, side=BOTTOM)
-htmlWindow.outputbox = HTMLLabel(htmlWindow, width="1", background="gray", html="<h1>Welcome</h1>")
+htmlWindow.outputbox = HTMLLabel(htmlWindow, width="1", background="darkgrey", html="<h1>Welcome</h1>")
 htmlWindow.outputbox.pack(fill="both", expand=1, side=TOP)
 htmlWindow.outputbox.fit_height()
 htmlWindow.inputeditor.bind("<Return>", onInputChange)
@@ -306,12 +335,12 @@ useCommandsScrollbar = ttk.Scrollbar (useCommandsFrame, orient="vertical")
 useCommandsScrollbar.grid(column=1, row=0)
 
 #Command Buttons
-savedCommands = get_commands(SAVE_FILE_NAME)
+savedCommands = get_commands(saveFileName)
 for commandTuple in savedCommands:
     add_user_command(commandTuple[0], commandTuple[1])
 
 # Save Button
-SAVE_BUTTON = ttk.Button(useCommandsFrame, text="Save Buttons", style="success.TButton", command = lambda: save_commands(SAVE_FILE_NAME))
+SAVE_BUTTON = ttk.Button(useCommandsFrame, text="Save Buttons", style="success.TButton", command = lambda: save_commands(saveFileName))
 SAVE_BUTTON.grid(column=1, row=1, sticky="WENS", padx=10, pady=20, columnspan=2)
 
 #  _________________________________________________
@@ -322,43 +351,59 @@ SAVE_BUTTON.grid(column=1, row=1, sticky="WENS", padx=10, pady=20, columnspan=2)
 botUsernameLabel = ttk.Label(botInfoFrame, text="Loading . . .", style="primary.TLabel")
 botUsernameLabel.pack(side=tk.LEFT, padx=10, pady=10)
 
-#  _______________________________________________________________________________________________
-# | "Settings" | Contains an entry field and a button to choose which channel to post to. |
-#  ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
-channelNameEntry = ttk.Entry(settingsFrame)       # Entry field for adding a new command's name
-channelNameEntry.grid(column=1,row=2)
-channelNameTitle = ttk.Label(settingsFrame, text="Channel Id")
-channelNameTitle.grid(column=0,row=2, sticky="W")
+#  __________________________________________________________________________________________________
+# | "Settings" | Contains an entry field and a button to choose which server and channel to post to. |
+#  ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
 
+# Entry field for changing server by ID
+serverNameEntry = ttk.Entry(settingsFrame)
+serverNameEntry.grid(column=1,row=2)
+serverNameTitle = ttk.Label(settingsFrame, text="Server Id")
+serverNameTitle.grid(column=0,row=2, sticky="W")
+chooseServerButton = ttk.Button(
+    settingsFrame,
+    text="Save",
+    style="success.TButton",
+    command = lambda: choose_server(serverNameEntry.get())
+)
+chooseServerButton.grid(column=2, row=2, sticky="NW", padx=10, pady=5)
+
+
+# Entry field for changing channel by ID
+channelNameEntry = ttk.Entry(settingsFrame)
+channelNameEntry.grid(column=1,row=3)
+channelNameTitle = ttk.Label(settingsFrame, text="Channel Id")
+channelNameTitle.grid(column=0,row=3, sticky="W")
 chooseChannelButton = ttk.Button(
     settingsFrame,
     text="Save",
     style="success.TButton",
     command = lambda: choose_channel(channelNameEntry.get())
 )
-chooseChannelButton.grid(column=2, row=2, sticky="NW", padx=10, pady=5)
+chooseChannelButton.grid(column=2, row=3, sticky="NW", padx=10, pady=5)
 
 removeMessageTextLabel = ttk.Label(
     settingsFrame,
     text = "Delete Message\nAfter Post?",
     style="light.TLabel"
 )
-removeMessageTextLabel.grid(column=0, row=3, sticky="W")
+removeMessageTextLabel.grid(column=0, row=4, sticky="W")
 
 removeMessageCheckBox = ttk.Checkbutton(
     settingsFrame,
     variable=deleteMessage,
     command = lambda: checkboxFunction()
 )
-removeMessageCheckBox.grid(column=1, row=3, sticky="NS", padx=10, pady=5, columnspan=2)
+removeMessageCheckBox.grid(column=1, row=4, sticky="NS", padx=10, pady=5, columnspan=2)
 
 #  ________________________________________________________________________________
 # | Packing | Defines the layout of the UI after all the buttons have been created |
 #  ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
-addCommandsFrame.pack      (fill=tk.BOTH, side=tk.TOP,padx=5, pady=10)
-settingsFrame.pack         (fill=tk.BOTH, side=tk.TOP,padx=5, pady=10)
-useCommandsFrame.pack      (fill=tk.BOTH, side=tk.TOP,padx=5, pady=10,expand=tk.YES)
-botInfoFrame.pack          (fill=tk.BOTH, side=tk.BOTTOM,padx=5, pady=10)
+channelsFrame.pack         (padx=5, pady=5,fill=Y,    side=LEFT, expand=NO)
+addCommandsFrame.pack      (padx=5, pady=5,fill=BOTH, side=TOP)
+settingsFrame.pack         (padx=5, pady=5,fill=BOTH, side=TOP)
+useCommandsFrame.pack      (padx=5, pady=5,fill=BOTH, side=TOP,expand=YES)
+botInfoFrame.pack          (padx=5, pady=5,fill=BOTH, side=BOTTOM)
 
 
 #Threading written by Benedict Wilkins AI, taken from his example blog post
