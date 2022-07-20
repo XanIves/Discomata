@@ -18,7 +18,8 @@ from tkinter import *
 from tkinter import constants, filedialog, font, ttk
 
 import discord
-from dotenv import load_dotenv, find_dotenv
+import dotenv
+from dotenv import load_dotenv, find_dotenv, set_key
 from markdown2 import Markdown
 from pygments.formatters import html
 from tkhtmlview import HTMLLabel
@@ -43,20 +44,15 @@ SAVE_FILE_NAME = "addedButtons.ini"
 CONSOLE_TEXT = "Starting up program"
 CHAT_TEXT = ""
 LAST_USERNAME = ""
-BOT_USERNAME = "<Loading>"
-
+BOT_USERNAME = os.environ.get("BOT_USERNAME")
 
 # Discord syncing stuff
 async def my_background_task():
-    global MESSAGE, CHANNEL_ID, FINISH, deleteMessage, BOT_USERNAME, botUsernameLabel
+    global MESSAGE, CHANNEL_ID, FINISH, deleteMessage
 
     await client.wait_until_ready() # ensures cache is loaded
     channel = client.get_channel(id=CHANNEL_ID) # replace with target channel id
     while not client.is_closed():
-        
-        updateBotUsername(botUsernameLabel)
-        BOT_USERNAME = client.user.name
-
 
         if MESSAGE != "NULL":
             channel = client.get_channel(id=CHANNEL_ID) # replace with target channel id
@@ -82,11 +78,18 @@ async def on_message(message):
 
 @client.event
 async def on_ready():   #Partially written by Benedict Wilkins AI
+    global BOT_USERNAME
+
     updateConsole(CONSOLE_TEXT, botConsole)
     updateConsole("Logged in as "+client.user.name, botConsole)
     updateConsole(client.user.id, botConsole)
     updateConsole('------', botConsole)
     client.loop.create_task(my_background_task()) # best to put it in here
+
+    dotenv_file = dotenv.find_dotenv()
+    dotenv.load_dotenv(dotenv_file)
+    os.environ["BOT_USERNAME"] = BOT_USERNAME
+    dotenv.set_key(dotenv_file, "BOT_USERNAME", os.environ["BOT_USERNAME"])
 
 
 class Sleep:    # This class was written by Benedict Wilkins AI
@@ -212,11 +215,6 @@ root.configure()
 deleteMessage = tk.IntVar()
 discordStyle = Style(theme='discord', themes_file='discordTheme.json')
 
-
-botUsername = tk.StringVar()
-botUsername.set("Loading...")
-botUsername.set("USERNAME: "+BOT_USERNAME)
-
 #  _____________________________________________________
 # | Frame Creation | For defining the layout of the GUI |
 #  ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
@@ -281,13 +279,6 @@ def convertTextToHtml(markdownText):
     html = md2html.convert(markdownText)
     return html
 
-def updateBotUsername(inputLabel):
-    global BOT_USERNAME
-    botUsername = tk.StringVar()
-    botUsername = BOT_USERNAME
-    inputLabel.textvariable = BOT_USERNAME
-    print("Set bot username to:"+BOT_USERNAME)
-    return inputLabel
     
 
 htmlChatConsoleWindow = tk.Frame(notebookTab3, width=335, height=150)
@@ -324,9 +315,12 @@ SAVE_BUTTON.grid(column=1, row=1, sticky="WENS", padx=10, pady=20, columnspan=2)
 #  ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
 # fetch the username of the bot in the server it's connected to.
 
+botUsername = tk.StringVar()
+botUsername.set("Loading...")
+botUsername.set(BOT_USERNAME)
+
 botUsernameLabel = ttk.Label(botInfoFrame, textvariable=botUsername, style="primary.TLabel")
 botUsernameLabel.pack(side=tk.LEFT, padx=10, pady=10)
-botUsernameLabel.textvariable = BOT_USERNAME
 
 #  _______________________________________________________________________________________________
 # | "Settings" | Contains an entry field and a button to choose which channel to post to. |
