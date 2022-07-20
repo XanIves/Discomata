@@ -18,7 +18,7 @@ from tkinter import *
 from tkinter import constants, filedialog, font, ttk
 
 import discord
-from dotenv import load_dotenv
+from dotenv import load_dotenv, find_dotenv
 from markdown2 import Markdown
 from pygments.formatters import html
 from tkhtmlview import HTMLLabel
@@ -26,46 +26,38 @@ from tkhtmlview import HTMLLabel
 import ttkbootstrap
 from ttkbootstrap import Style
 
-load_dotenv()           #Load discord keys and codes from .env file
+load_dotenv(find_dotenv())           #Load discord keys and codes from .env file
 
 # This will serve as the queue for my_background_task to check and read from. When value is "NULL", loop skips posting message
-global MESSAGE
 MESSAGE = "NULL"
 
 # This variable stores the list of commands
-global USER_BUTTONS
 USER_BUTTONS = []
 
 # This variable will store the list of buttons next to user buttons to be deleted.
-global DELETE_USER_BUTTONS
 DELETE_USER_BUTTONS = []
 
-global CHANNEL_ID
 CHANNEL_ID = 748651797350187139
-
-global deleteMessage    # Controls whether a message gets deleted after very short period of time (~1s). Useful for calling Diceparser, less for Avrae
-#look for the declaration of this variable after the root declaration
-
 client = discord.Client()
 SAVE_FILE_NAME = "addedButtons.ini"
-global SAVE_BUTTON   # Green "Save" button to save current button states for later
-
-global CONSOLE_TEXT
 CONSOLE_TEXT = "Starting up program"
-
-global CHAT_TEXT
 CHAT_TEXT = ""
-
-global LAST_USERNAME
 LAST_USERNAME = ""
+BOT_USERNAME = "<Loading>"
+
 
 # Discord syncing stuff
 async def my_background_task():
-    global MESSAGE, CHANNEL_ID, FINISH, deleteMessage
+    global MESSAGE, CHANNEL_ID, FINISH, deleteMessage, BOT_USERNAME, botUsernameLabel
+
     await client.wait_until_ready() # ensures cache is loaded
     channel = client.get_channel(id=CHANNEL_ID) # replace with target channel id
     while not client.is_closed():
-        botUsername.set = "Fuck you"
+        
+        updateBotUsername(botUsernameLabel)
+        BOT_USERNAME = client.user.name
+
+
         if MESSAGE != "NULL":
             channel = client.get_channel(id=CHANNEL_ID) # replace with target channel id
             sentMessage = await channel.send(MESSAGE)
@@ -78,6 +70,7 @@ async def my_background_task():
 async def on_message(message):
     global LAST_USERNAME
     username = message.author.name
+    
     if (username != LAST_USERNAME):
         updateConsole("\n"+username+":\n"+message.content, chatConsole)
         updateChatWindow("\n***"+username+":***\n"+message.content)
@@ -90,17 +83,11 @@ async def on_message(message):
 @client.event
 async def on_ready():   #Partially written by Benedict Wilkins AI
     updateConsole(CONSOLE_TEXT, botConsole)
-    print('Logged in as')
-    updateConsole("Logged in as ", botConsole)
-    updateConsole(client.user.name, botConsole)
+    updateConsole("Logged in as "+client.user.name, botConsole)
     updateConsole(client.user.id, botConsole)
     updateConsole('------', botConsole)
-    print(client.user.name)
-    print(client.user.id)
-    print('------')
-    #await channel.send("!beyond https://ddb.ac/characters/28780677/kdQS4u")
-
     client.loop.create_task(my_background_task()) # best to put it in here
+
 
 class Sleep:    # This class was written by Benedict Wilkins AI
     def __init__(self, wait):
@@ -125,8 +112,13 @@ def after(t, fun, *args):
 
 def run():
     token = os.environ.get("DISCORD_TOKEN")
-    updateConsole("Discord Token: " + token, botConsole)
-    client.run(token)
+    try:
+        updateConsole("Discord Token: " + token, botConsole)
+        client.run(token)
+
+    except:
+        print("Unable to connect with provided token: "+token+". Check your .env file and token")
+        quit()
 
 def quit():
     global FINISH
@@ -183,7 +175,6 @@ def updateConsole(inputText, targetConsole):
     targetConsole.configure(state="disabled")
 
 def get_commands(saveFileName):
-    print("Opening saved commands from " + saveFileName)
     updateConsole("Opening saved commands from " + saveFileName, botConsole)
     commandList = []
     with open(saveFileName, "r") as file:
@@ -194,7 +185,6 @@ def get_commands(saveFileName):
                 commandTuple = [parts[0], parts[1].rstrip('\n')]
                 commandList.append(commandTuple)
         else:
-            print("Error: {saveFileName} could not be opened")
             updateConsole("Error: {saveFileName} could not be opened", botConsole)
     return commandList
 
@@ -225,6 +215,7 @@ discordStyle = Style(theme='discord', themes_file='discordTheme.json')
 
 botUsername = tk.StringVar()
 botUsername.set("Loading...")
+botUsername.set("USERNAME: "+BOT_USERNAME)
 
 #  _____________________________________________________
 # | Frame Creation | For defining the layout of the GUI |
@@ -234,7 +225,7 @@ addCommandsFrame = ttk.LabelFrame(root, height=200, width=400, text=" Add Comman
 settingsFrame    = ttk.LabelFrame(botInfoFrame, text=" Settings ")
 useCommandsFrame = ttk.LabelFrame(root, text=" Buttons ")
 consoleNotebook  = ttk.Notebook  (root, style="primary.TNotebook")
-settingsWindow = tk.PanedWindow(settingsFrame, orient=tk.VERTICAL)
+settingsWindow = tk.PanedWindow(settingsFrame, orient=tk.VERTICAL, background="purple")
 
 #  _______________________________________________________
 # | "Add Commands" | Contains buttons for adding commands |
@@ -290,6 +281,15 @@ def convertTextToHtml(markdownText):
     html = md2html.convert(markdownText)
     return html
 
+def updateBotUsername(inputLabel):
+    global BOT_USERNAME
+    botUsername = tk.StringVar()
+    botUsername = BOT_USERNAME
+    inputLabel.textvariable = BOT_USERNAME
+    print("Set bot username to:"+BOT_USERNAME)
+    return inputLabel
+    
+
 htmlChatConsoleWindow = tk.Frame(notebookTab3, width=335, height=150)
 htmlChatConsoleWindow.pack(fill="both", side="left", expand=True)
 htmlWindow = tk.Frame(htmlChatConsoleWindow, width=335, height=150)
@@ -299,7 +299,7 @@ htmlWindow.pack(fill=BOTH, expand=1)
 htmlWindow.inputeditor = Text(htmlWindow, width="1" , height = "0.25", font=htmlWindow.myfont)
 htmlWindow.inputeditor.pack(fill=X, expand=1, side=BOTTOM)
 htmlWindow.outputbox = HTMLLabel(htmlWindow, width="1", background="gray", html="<h1>Welcome</h1>")
-htmlWindow.outputbox.pack(fill="both", expand=1, side=TOP)
+htmlWindow.outputbox.pack(fill="both", expand=1, side=BOTTOM)
 htmlWindow.outputbox.fit_height()
 htmlWindow.inputeditor.bind("<Return>", onInputChange)
 
@@ -326,6 +326,7 @@ SAVE_BUTTON.grid(column=1, row=1, sticky="WENS", padx=10, pady=20, columnspan=2)
 
 botUsernameLabel = ttk.Label(botInfoFrame, textvariable=botUsername, style="primary.TLabel")
 botUsernameLabel.pack(side=tk.LEFT, padx=10, pady=10)
+botUsernameLabel.textvariable = BOT_USERNAME
 
 #  _______________________________________________________________________________________________
 # | "Settings" | Contains an entry field and a button to choose which channel to post to. |
